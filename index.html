@@ -372,8 +372,14 @@
     .concept-image {
       width: 100%;
       aspect-ratio: 4 / 3;
-      background: linear-gradient(135deg, #b8cfe8 0%, #dce8f5 100%);
       border-radius: 4px;
+      overflow: hidden;
+    }
+
+    .concept-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
 
     .concept-heading {
@@ -427,12 +433,15 @@
       width: 100%;
       aspect-ratio: 3 / 2;
       border-radius: 4px;
+      overflow: hidden;
     }
 
-    .facility-image.stay    { background: linear-gradient(135deg, #a3c4e8 0%, #d4e4f4 100%); }
-    .facility-image.cafe    { background: linear-gradient(135deg, #c8b89a 0%, #e8ddd0 100%); }
-    .facility-image.bbq     { background: linear-gradient(135deg, #8fb88a 0%, #c8dcc6 100%); }
-    .facility-image.event   { background: linear-gradient(135deg, #b0a4c8 0%, #d8d2e6 100%); }
+    .facility-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
     .facility-image.brewery { background: linear-gradient(135deg, #c8a855 0%, #e8dbb0 100%); }
 
     .facility-tag {
@@ -855,7 +864,9 @@
   <section class="concept" id="concept">
     <div class="container">
       <div class="concept-grid fade-in">
-        <div class="concept-image"></div>
+        <div class="concept-image">
+          <img src="images/concept.jpg" alt="SHIPのコンセプト - 海辺での集合写真">
+        </div>
         <div>
           <span class="section-label">Concept</span>
           <h2 class="section-title">コンセプト</h2>
@@ -883,7 +894,9 @@
 
       <!-- STAY -->
       <div class="facility-item fade-in">
-        <div class="facility-image stay"></div>
+        <div class="facility-image stay">
+          <img src="images/stay.jpg" alt="宿泊施設">
+        </div>
         <div>
           <span class="facility-tag">Stay</span>
           <h3 class="facility-name">宿泊</h3>
@@ -896,7 +909,9 @@
 
       <!-- CAFE -->
       <div class="facility-item reverse fade-in">
-        <div class="facility-image cafe"></div>
+        <div class="facility-image cafe">
+          <img src="images/cafe.jpg" alt="カフェ">
+        </div>
         <div>
           <span class="facility-tag">Cafe</span>
           <h3 class="facility-name">カフェ</h3>
@@ -908,7 +923,9 @@
 
       <!-- BBQ -->
       <div class="facility-item fade-in">
-        <div class="facility-image bbq"></div>
+        <div class="facility-image bbq">
+          <img src="images/bbq.jpg" alt="BBQスペース">
+        </div>
         <div>
           <span class="facility-tag">BBQ</span>
           <h3 class="facility-name">BBQ</h3>
@@ -920,7 +937,9 @@
 
       <!-- EVENT -->
       <div class="facility-item reverse fade-in">
-        <div class="facility-image event"></div>
+        <div class="facility-image event">
+          <img src="images/event.jpg" alt="イベント・企業研修">
+        </div>
         <div>
           <span class="facility-tag">Event &amp; Training</span>
           <h3 class="facility-name">イベント・企業研修</h3>
