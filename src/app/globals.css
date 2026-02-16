@@ -1,0 +1,82 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-sand-50: #faf8f5;
+  --color-sand-100: #f2ede6;
+  --color-sand-200: #e5ddd0;
+  --color-sand-300: #d4c8b5;
+  --color-sand-400: #bfad94;
+  --color-sand-500: #a89070;
+  --color-sand-600: #8a7358;
+  --color-sand-700: #6b5a45;
+  --color-sand-800: #4d4033;
+  --color-sand-900: #2f2720;
+
+  --color-forest-50: #f0f5f1;
+  --color-forest-100: #dce8de;
+  --color-forest-200: #b9d1be;
+  --color-forest-300: #8db896;
+  --color-forest-400: #6a9e73;
+  --color-forest-500: #4a7d53;
+  --color-forest-600: #3a6342;
+  --color-forest-700: #2e4e35;
+  --color-forest-800: #233a28;
+  --color-forest-900: #18271b;
+
+  --color-ocean-50: #f0f5f8;
+  --color-ocean-100: #dce8ef;
+  --color-ocean-200: #b5cfe0;
+  --color-ocean-300: #88b3cc;
+  --color-ocean-400: #5e97b8;
+  --color-ocean-500: #3e7a9e;
+  --color-ocean-600: #31617e;
+  --color-ocean-700: #264b62;
+  --color-ocean-800: #1c3747;
+  --color-ocean-900: #12242f;
+
+  --font-sans: "Noto Sans JP", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #faf8f5;
+  color: #2f2720;
+  font-family: "Noto Sans JP", sans-serif;
+}
+
+/* Photo placeholder styling */
+.photo-placeholder {
+  background: linear-gradient(135deg, #d4c8b5 0%, #8db896 50%, #88b3cc 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 0.875rem;
+  letter-spacing: 0.1em;
+}
+
+/* Smooth fade-in animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+/* Stagger animation delays */
+.delay-100 { animation-delay: 0.1s; }
+.delay-200 { animation-delay: 0.2s; }
+.delay-300 { animation-delay: 0.3s; }
+.delay-400 { animation-delay: 0.4s; }
+.delay-500 { animation-delay: 0.5s; }
