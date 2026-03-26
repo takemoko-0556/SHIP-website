@@ -1,0 +1,155 @@
+/* ========================================
+   Goat Page - Gallery with Overlay
+======================================== */
+.goat-gallery {
+  padding: 80px 0;
+  background: var(--gray-100);
+}
+
+.goat-gallery-title {
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gray-400);
+  margin-bottom: 32px;
+}
+
+/* Grid */
+.goat-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+/* Card */
+.goat-card {
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: pointer;
+  outline: none;
+}
+
+/* Image area */
+.goat-card-img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+}
+
+.goat-card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.goat-card-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--gray-200);
+  transition: transform 0.5s ease;
+}
+
+.goat-card-placeholder span {
+  font-size: 13px;
+  color: var(--gray-400);
+  letter-spacing: 0.06em;
+}
+
+/* Overlay */
+.goat-card-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 28px 24px;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.75) 0%,
+    rgba(0, 0, 0, 0.45) 60%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  transform: translateY(100%);
+  transition: transform 0.4s ease;
+}
+
+.goat-card-name {
+  font-size: 18px;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 0.08em;
+  margin-bottom: 8px;
+}
+
+.goat-card-desc {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.9;
+  letter-spacing: 0.02em;
+}
+
+/* ========================================
+   Hover interaction (PC)
+======================================== */
+.goat-card:hover .goat-card-overlay,
+.goat-card:focus .goat-card-overlay {
+  transform: translateY(0);
+}
+
+.goat-card:hover .goat-card-img img,
+.goat-card:focus .goat-card-img img,
+.goat-card:hover .goat-card-placeholder,
+.goat-card:focus .goat-card-placeholder {
+  transform: scale(1.05);
+}
+
+/* ========================================
+   Tap interaction (Mobile)
+======================================== */
+.goat-card.is-active .goat-card-overlay {
+  transform: translateY(0);
+}
+
+.goat-card.is-active .goat-card-img img,
+.goat-card.is-active .goat-card-placeholder {
+  transform: scale(1.05);
+}
+
+/* ========================================
+   Responsive
+======================================== */
+@media (max-width: 820px) {
+  .goat-gallery {
+    padding: 60px 0;
+  }
+
+  .goat-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  .goat-card-overlay {
+    padding: 20px 16px;
+  }
+
+  .goat-card-name {
+    font-size: 16px;
+  }
+
+  .goat-card-desc {
+    font-size: 12px;
+    line-height: 1.8;
+  }
+}
+
+@media (max-width: 480px) {
+  .goat-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}

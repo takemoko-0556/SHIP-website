@@ -1,0 +1,567 @@
+/* ========================================
+   Stay Page Styles
+======================================== */
+
+/* ========================================
+   Intro
+======================================== */
+.stay-intro {
+  padding: 80px 0 60px;
+}
+
+.stay-lead {
+  font-size: 15px;
+  color: var(--gray-600);
+  line-height: 2.2;
+  max-width: 640px;
+  margin-bottom: 40px;
+}
+
+.stay-info-bar {
+  display: flex;
+  gap: 0;
+  border: 1px solid var(--gray-300);
+  border-radius: 8px;
+  overflow: hidden;
+  max-width: 480px;
+}
+
+.stay-info-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 16px;
+  gap: 6px;
+}
+
+.stay-info-item + .stay-info-item {
+  border-left: 1px solid var(--gray-300);
+}
+
+.stay-info-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gray-400);
+}
+
+.stay-info-value {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--black);
+  letter-spacing: 0.06em;
+}
+
+/* ========================================
+   Section Title
+======================================== */
+.stay-section-title {
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gray-400);
+  margin-bottom: 32px;
+}
+
+/* ========================================
+   Room Types
+======================================== */
+.stay-rooms {
+  padding: 80px 0;
+  background: var(--gray-100);
+}
+
+/* Tabs */
+.room-tabs {
+  display: flex;
+  gap: 0;
+  margin-bottom: 48px;
+  border-bottom: 2px solid var(--gray-300);
+}
+
+.room-tab {
+  padding: 14px 32px;
+  font-family: 'Zen Maru Gothic', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  color: var(--gray-500);
+  background: none;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.room-tab::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--brand);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.room-tab:hover {
+  color: var(--black);
+}
+
+.room-tab.active {
+  color: var(--brand);
+  font-weight: 700;
+}
+
+.room-tab.active::after {
+  transform: scaleX(1);
+}
+
+/* Room Detail */
+.room-detail {
+  display: none;
+  animation: roomFadeIn 0.5s ease;
+}
+
+.room-detail.active {
+  display: block;
+}
+
+@keyframes roomFadeIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ========================================
+   Room Slider
+======================================== */
+.room-slider {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--gray-200);
+  margin-bottom: 40px;
+}
+
+.room-slider-track {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.room-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.room-slide.active {
+  opacity: 1;
+}
+
+.room-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.room-slide-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--gray-200);
+}
+
+.room-slide-placeholder span {
+  font-size: 14px;
+  color: var(--gray-500);
+  letter-spacing: 0.06em;
+}
+
+/* Slider buttons */
+.room-slider-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.85);
+  border: none;
+  cursor: pointer;
+  font-size: 24px;
+  color: var(--black);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s ease, transform 0.3s ease;
+  z-index: 5;
+  backdrop-filter: blur(4px);
+}
+
+.room-slider-btn:hover {
+  background: rgba(255, 255, 255, 1);
+  transform: translateY(-50%) scale(1.05);
+}
+
+.room-slider-btn.prev {
+  left: 16px;
+}
+
+.room-slider-btn.next {
+  right: 16px;
+}
+
+/* Slider dots */
+.room-slider-dots {
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+  z-index: 5;
+}
+
+.room-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.room-dot.active {
+  background: #fff;
+  transform: scale(1.25);
+}
+
+.room-dot:hover {
+  background: rgba(255, 255, 255, 0.8);
+}
+
+/* ========================================
+   Room Info
+======================================== */
+.room-info {
+  max-width: 640px;
+}
+
+.room-name {
+  font-size: 26px;
+  font-weight: 300;
+  color: var(--black);
+  letter-spacing: 0.08em;
+  margin-bottom: 16px;
+}
+
+.room-description {
+  font-size: 15px;
+  color: var(--gray-600);
+  line-height: 2.2;
+  margin-bottom: 32px;
+}
+
+/* Room specs */
+.room-specs {
+  display: flex;
+  gap: 0;
+  border-top: 1px solid var(--gray-300);
+  border-bottom: 1px solid var(--gray-300);
+  margin-bottom: 32px;
+}
+
+.room-spec {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 20px 0;
+}
+
+.room-spec + .room-spec {
+  padding-left: 24px;
+  border-left: 1px solid var(--gray-300);
+}
+
+.room-spec-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gray-400);
+}
+
+.room-spec-value {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--black);
+  letter-spacing: 0.04em;
+}
+
+.room-spec-value.price {
+  color: var(--brand);
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.room-spec-value.price small {
+  font-size: 11px;
+  font-weight: 400;
+  color: var(--gray-500);
+}
+
+/* Reserve button */
+.room-reserve-btn {
+  display: inline-block;
+  padding: 16px 48px;
+  background: var(--brand);
+  color: #fff;
+  font-family: 'Zen Maru Gothic', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  border-radius: 60px;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.room-reserve-btn:hover {
+  opacity: 0.85;
+  transform: translateY(-1px);
+}
+
+/* ========================================
+   Room Features (こだわりポイント)
+======================================== */
+.room-features {
+  margin-top: 56px;
+}
+
+.room-features-title {
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gray-400);
+  margin-bottom: 28px;
+}
+
+.room-features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.room-feature-card {
+  border-radius: 10px;
+  overflow: hidden;
+  background: #fff;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.room-feature-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.room-feature-img {
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  background: var(--gray-200);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.room-feature-img span {
+  font-size: 13px;
+  color: var(--gray-400);
+  letter-spacing: 0.06em;
+}
+
+.room-feature-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.room-feature-text {
+  padding: 20px;
+}
+
+.room-feature-text h5 {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--black);
+  letter-spacing: 0.04em;
+  margin-bottom: 8px;
+}
+
+.room-feature-text p {
+  font-size: 13px;
+  color: var(--gray-600);
+  line-height: 1.9;
+}
+
+/* ========================================
+   Common Amenities (羅列)
+======================================== */
+.stay-amenities {
+  padding: 80px 0;
+}
+
+.amenity-group {
+  margin-bottom: 28px;
+}
+
+.amenity-group:last-child {
+  margin-bottom: 0;
+}
+
+.amenity-group-label {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--gray-400);
+  margin-bottom: 10px;
+}
+
+.amenity-inline {
+  font-size: 14px;
+  color: var(--gray-600);
+  line-height: 2;
+  letter-spacing: 0.04em;
+}
+
+.amenity-link {
+  color: var(--brand);
+  font-weight: 500;
+  transition: opacity 0.3s ease;
+}
+
+.amenity-link:hover {
+  opacity: 0.6;
+}
+
+/* ========================================
+   Responsive
+======================================== */
+@media (max-width: 1024px) {
+  .room-features-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+}
+
+@media (max-width: 820px) {
+  .stay-intro {
+    padding: 48px 0 40px;
+  }
+
+  .stay-info-bar {
+    max-width: 100%;
+  }
+
+  .stay-info-item {
+    padding: 16px 12px;
+  }
+
+  .stay-rooms {
+    padding: 60px 0;
+  }
+
+  .room-tabs {
+    margin-bottom: 32px;
+  }
+
+  .room-tab {
+    padding: 12px 20px;
+    font-size: 13px;
+  }
+
+  .room-slider {
+    border-radius: 8px;
+    margin-bottom: 28px;
+  }
+
+  .room-name {
+    font-size: 22px;
+  }
+
+  .room-specs {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .room-spec + .room-spec {
+    padding-left: 0;
+    padding-top: 16px;
+    border-left: none;
+    border-top: 1px solid var(--gray-300);
+  }
+
+  .room-spec {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 0;
+  }
+
+  .room-reserve-btn {
+    display: block;
+    text-align: center;
+    width: 100%;
+  }
+
+  .room-features {
+    margin-top: 40px;
+  }
+
+  .room-features-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  .stay-amenities {
+    padding: 60px 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .room-features-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .room-tab {
+    padding: 10px 14px;
+    font-size: 12px;
+  }
+
+  .room-slider-btn {
+    width: 36px;
+    height: 36px;
+    font-size: 20px;
+  }
+
+  .room-slider-btn.prev {
+    left: 8px;
+  }
+
+  .room-slider-btn.next {
+    right: 8px;
+  }
+}

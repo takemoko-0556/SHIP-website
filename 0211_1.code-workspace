@@ -1,0 +1,16 @@
+{
+	"folders": [
+		{
+			"path": "../0211_1"
+		},
+		{
+			"path": "../ship-app"
+		},
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "ship-app"
+	}
+}

@@ -10,265 +10,234 @@
   <meta property="og:type" content="website">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@300;400;500;700&family=Nunito:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@300;400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-  <!-- ========== Header ========== -->
-  <header class="header" id="header">
-    <div class="container header-inner">
-      <a href="#" class="logo">SHIP</a>
-      <nav class="nav-desktop">
-        <a href="#concept">コンセプト</a>
-        <a href="#facilities">施設紹介</a>
-        <a href="#news">お知らせ</a>
-        <a href="#access">アクセス</a>
-        <a href="#contact">お問い合わせ</a>
-      </nav>
-      <button class="hamburger" id="hamburger" aria-label="メニュー">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-    </div>
-    <nav class="nav-mobile" id="nav-mobile">
-      <a href="#concept">コンセプト</a>
-      <a href="#facilities">施設紹介</a>
-      <a href="#news">お知らせ</a>
-      <a href="#access">アクセス</a>
-      <a href="#contact">お問い合わせ</a>
-    </nav>
+  <!-- ========== Loading Cover ========== -->
+  <div class="loading-cover" id="loading-cover">
+    <span class="loading-logo">SHIP</span>
+  </div>
+
+  <!-- ========== Mobile Header ========== -->
+  <header class="mobile-header" id="mobile-header">
+    <a href="#" class="logo"><img src="images/common/logo-ship.png" alt="SHIP" class="mobile-header-logo"></a>
+    <button class="hamburger" id="hamburger" aria-label="メニュー">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
   </header>
+  <nav class="nav-mobile" id="nav-mobile">
+    <a href="#concept">Concept</a>
+    <a href="#news">News</a>
+    <a href="#access">Access</a>
+    <a href="#contact">Contact</a>
+  </nav>
 
-  <!-- ========== Hero ========== -->
-  <section class="hero">
-    <div class="hero-content">
-      <h1 class="hero-title">SHIP</h1>
-      <p class="hero-subtitle">南房総のローカル複合施設</p>
-      <span class="hero-open">2026年5月 OPEN</span>
-    </div>
-    <div class="hero-scroll">
-      <span>Scroll</span>
-      <div class="hero-scroll-line"></div>
-    </div>
-  </section>
+  <!-- ========== Layout Wrapper ========== -->
+  <div class="site-layout">
 
-  <!-- ========== Concept ========== -->
-  <section class="concept" id="concept">
-    <div class="container">
-      <div class="concept-grid fade-in">
-        <div class="concept-image"></div>
-        <div>
-          <span class="section-label">Concept</span>
-          <h2 class="section-title">コンセプト</h2>
-          <p class="concept-heading">海と山に抱かれた、<br>みんなの居場所。</p>
-          <p class="concept-text">
-            SHIPは、千葉県南房総市に生まれるローカル複合施設です。
-            宿泊、カフェ、BBQ、イベントスペース、クラフトビール醸造所——
-            多彩な体験が一つの場所に集まり、地元の人も旅人も、
-            誰もが気軽に立ち寄れる「みんなの居場所」を目指しています。<br><br>
-            人と人が出会い、新しいつながりが生まれる。
-            SHIPは、そんな港のような存在でありたいと思っています。
-          </p>
+    <!-- ===== Left Sidebar (fixed) ===== -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-top">
+        <a href="index.html" class="sidebar-logo">
+          <img src="images/common/logo-ship.png" alt="SHIP">
+        </a>
+      </div>
+
+      <div class="sidebar-tags">
+        <a class="hashtag active" data-image="images/stay/hero.jpg" href="pages/stay.html">#宿泊</a>
+        <a class="hashtag" data-image="images/coffee/hero.jpg" href="pages/coffee.html">#コーヒー</a>
+        <a class="hashtag" data-image="images/training/hero.jpg" href="pages/training.html">#企業研修</a>
+        <a class="hashtag" data-image="images/pizza/hero.jpg" href="pages/pizza.html">#ピザ作り体験</a>
+        <a class="hashtag" data-image="images/cafe/hero.jpg" href="pages/cafe.html">#カフェ</a>
+        <a class="hashtag" data-image="images/bonfire/hero.jpg" href="pages/bonfire.html">#焚き火</a>
+        <a class="hashtag" data-image="images/diy/hero.jpg" href="pages/diy.html">#DIYワークショップ</a>
+        <a class="hashtag" data-image="images/bbq/hero.jpg" href="pages/bbq.html">#BBQ</a>
+        <a class="hashtag" data-image="images/goat/hero.jpg" href="pages/goat.html">#ヤギ</a>
+        <a class="hashtag" data-image="images/beer/hero.jpg" href="pages/beer.html">#クラフトビール</a>
+        <a class="hashtag" data-image="images/park/hero.jpg" href="pages/park.html">#公園</a>
+        <a class="hashtag" data-image="images/event/hero.jpg" href="pages/event.html">#イベント</a>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a href="#concept">Concept</a>
+        <a href="#news">News</a>
+        <a href="#access">Access</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </aside>
+
+    <!-- ===== Right Main Content ===== -->
+    <main class="main-content">
+
+      <!-- Hero Image Area -->
+      <section class="hero-visual" id="hero-visual">
+        <div class="hero-image-container">
+          <img src="images/stay/hero.jpg" alt="SHIPの風景" class="hero-main-image" id="hero-main-image">
+          <img src="" alt="" class="hero-next-image" id="hero-next-image">
         </div>
-      </div>
-    </div>
-  </section>
+        <p class="hero-catchphrase" id="hero-catchphrase">We hope good relation-ship begins here.</p>
+      </section>
 
-  <!-- ========== Facilities ========== -->
-  <section class="facilities" id="facilities">
-    <div class="container">
-      <div class="facilities-header fade-in">
-        <span class="section-label">Facilities</span>
-        <h2 class="section-title">施設紹介</h2>
-      </div>
-
-      <!-- STAY -->
-      <div class="facility-item fade-in">
-        <div class="facility-image stay"></div>
-        <div>
-          <span class="facility-tag">Stay</span>
-          <h3 class="facility-name">宿泊</h3>
-          <p class="facility-desc">
-            自然に囲まれた、心ほどける宿泊体験。日常から離れ、波の音や鳥のさえずりに包まれながら、
-            ゆっくりと自分を取り戻す特別な空間です。
-          </p>
+      <!-- Mobile Hashtags (shown below hero on mobile) -->
+      <section class="mobile-tags" id="mobile-tags">
+        <div class="mobile-tags-inner">
+          <a class="hashtag" href="pages/stay.html" data-image="images/stay/hero.jpg">#宿泊</a>
+          <a class="hashtag" href="pages/coffee.html" data-image="images/coffee/hero.jpg">#コーヒー</a>
+          <a class="hashtag" href="pages/training.html" data-image="images/training/hero.jpg">#企業研修</a>
+          <a class="hashtag" href="pages/pizza.html" data-image="images/pizza/hero.jpg">#ピザ作り体験</a>
+          <a class="hashtag" href="pages/cafe.html" data-image="images/cafe/hero.jpg">#カフェ</a>
+          <a class="hashtag" href="pages/bonfire.html" data-image="images/bonfire/hero.jpg">#焚き火</a>
+          <a class="hashtag" href="pages/diy.html" data-image="images/diy/hero.jpg">#DIYワークショップ</a>
+          <a class="hashtag" href="pages/bbq.html" data-image="images/bbq/hero.jpg">#BBQ</a>
+          <a class="hashtag" href="pages/goat.html" data-image="images/goat/hero.jpg">#ヤギ</a>
+          <a class="hashtag" href="pages/beer.html" data-image="images/beer/hero.jpg">#クラフトビール</a>
+          <a class="hashtag" href="pages/park.html" data-image="images/park/hero.jpg">#公園</a>
+          <a class="hashtag" href="pages/event.html" data-image="images/event/hero.jpg">#イベント</a>
         </div>
-      </div>
+      </section>
 
-      <!-- CAFE -->
-      <div class="facility-item reverse fade-in">
-        <div class="facility-image cafe"></div>
-        <div>
-          <span class="facility-tag">Cafe</span>
-          <h3 class="facility-name">カフェ</h3>
-          <p class="facility-desc">
-            地元の食材を使ったドリンクやフード。海を眺めながら、ゆったりとした時間をお過ごしください。
-          </p>
-        </div>
-      </div>
-
-      <!-- BBQ -->
-      <div class="facility-item fade-in">
-        <div class="facility-image bbq"></div>
-        <div>
-          <span class="facility-tag">BBQ</span>
-          <h3 class="facility-name">BBQ</h3>
-          <p class="facility-desc">
-            開放的なアウトドアBBQスペース。家族や仲間と、自然の中で楽しむ食事は格別です。
-          </p>
-        </div>
-      </div>
-
-      <!-- EVENT -->
-      <div class="facility-item reverse fade-in">
-        <div class="facility-image event"></div>
-        <div>
-          <span class="facility-tag">Event &amp; Training</span>
-          <h3 class="facility-name">イベント・企業研修</h3>
-          <p class="facility-desc">
-            ワークショップやセミナー、チームビルディングに。自然の中で行う研修は、
-            新たな発想やチームの結束力を生み出します。
-          </p>
-        </div>
-      </div>
-
-      <!-- BREWERY -->
-      <div class="facility-item fade-in">
-        <div class="facility-image brewery"></div>
-        <div>
-          <span class="facility-tag">Craft Brewery</span>
-          <h3 class="facility-name">クラフトビール醸造所</h3>
-          <p class="facility-desc">
-            地元の素材を活かしたオリジナルクラフトビール。できたての一杯を、
-            その場で味わえる贅沢をお届けします。
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========== News ========== -->
-  <section class="news" id="news">
-    <div class="container">
-      <div class="news-header fade-in">
-        <span class="section-label">News</span>
-        <h2 class="section-title">お知らせ</h2>
-      </div>
-      <div class="news-list fade-in">
-        <div class="news-item">
-          <span class="news-date">2026.05</span>
-          <div class="news-content">
-            <p><span class="news-badge coming-soon">COMING SOON</span></p>
-            <p class="news-title">SHIP グランドオープン</p>
-            <p class="news-desc">千葉県南房総市にSHIPがオープンします。</p>
+      <!-- News -->
+      <section class="section news" id="news">
+        <div class="section-inner">
+          <div class="section-header center reveal">
+            <span class="section-label">News</span>
+            <h2 class="section-title">お知らせ</h2>
+            <div class="section-divider"></div>
+          </div>
+          <div class="news-list" id="news-list">
+            <!-- Dynamically loaded from microCMS -->
+            <div class="news-loading">読み込み中...</div>
           </div>
         </div>
-        <div class="news-item">
-          <span class="news-date">2026.02</span>
-          <div class="news-content">
-            <p><span class="news-badge update">UPDATE</span></p>
-            <p class="news-title">ウェブサイトを公開しました</p>
-            <p class="news-desc">SHIPの公式ウェブサイトを公開しました。最新情報をお届けします。</p>
+      </section>
+
+      <!-- Concept -->
+      <section class="section concept" id="concept">
+        <div class="section-inner">
+          <div class="concept-grid">
+            <img src="images/common/concept.jpg" alt="SHIPのコンセプトイメージ" class="concept-image reveal-scale">
+            <div class="reveal" data-delay="200">
+              <div class="section-header">
+                <span class="section-label">Concept</span>
+                <h2 class="section-title">コンセプト</h2>
+                <div class="section-divider"></div>
+              </div>
+              <p class="concept-heading">海と山に抱かれた、<br>みんなの居場所。</p>
+              <p class="concept-text">
+                SHIPは、千葉県南房総市に生まれるローカル複合施設です。
+                宿泊、カフェ、BBQ、イベントスペース、クラフトビール醸造所——
+                多彩な体験が一つの場所に集まり、地元の人も旅人も、
+                誰もが気軽に立ち寄れる「みんなの居場所」を目指しています。<br><br>
+                人と人が出会い、新しいつながりが生まれる。
+                SHIPは、そんな港のような存在でありたいと思っています。
+              </p>
+            </div>
           </div>
         </div>
-      </div>
-    </div>
-  </section>
+      </section>
 
-  <!-- ========== Access ========== -->
-  <section class="access" id="access">
-    <div class="container">
-      <div class="access-header fade-in">
-        <span class="section-label">Access</span>
-        <h2 class="section-title">アクセス</h2>
-      </div>
-      <div class="access-grid fade-in">
-        <div class="access-map">
-          <span>Google Map（準備中）</span>
-        </div>
-        <div class="access-info">
-          <h3>所在地</h3>
-          <p class="access-address">
-            〒295-0000<br>
-            千葉県南房総市<br>
-            ※詳細住所はオープン時にお知らせします
-          </p>
-
-          <div class="access-route">
-            <h4>お車でお越しの場合</h4>
-            <p>富津館山道路 富浦ICより約15分<br>駐車場完備</p>
+      <!-- Access -->
+      <section class="section access" id="access">
+        <div class="section-inner">
+          <div class="section-header center reveal">
+            <span class="section-label">Access</span>
+            <h2 class="section-title">アクセス</h2>
+            <div class="section-divider"></div>
           </div>
+          <div class="access-grid">
+            <div class="access-map reveal-scale">
+              <span>Google Map（準備中）</span>
+            </div>
+            <div class="access-info reveal" data-delay="200">
+              <h3>所在地</h3>
+              <p class="access-address">
+                〒295-0000<br>
+                千葉県南房総市<br>
+                ※詳細住所はオープン時にお知らせします
+              </p>
 
-          <div class="access-route">
-            <h4>電車・バスでお越しの場合</h4>
-            <p>
-              JR内房線 南三原駅よりバスで約10分<br>
-              東京駅より高速バス「房総なのはな号」で約2時間
+              <div class="access-route">
+                <h4>お車でお越しの場合</h4>
+                <p>富津館山道路 富浦ICより約15分<br>駐車場完備</p>
+              </div>
+
+              <div class="access-route">
+                <h4>電車・バスでお越しの場合</h4>
+                <p>
+                  JR内房線 南三原駅よりバスで約10分<br>
+                  東京駅より高速バス「房総なのはな号」で約2時間
+                </p>
+              </div>
+
+              <div class="access-hours">
+                <h4>営業時間</h4>
+                <p>オープン時にお知らせいたします</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact -->
+      <section class="section contact" id="contact">
+        <div class="section-inner">
+          <div class="reveal">
+            <div class="section-header center">
+              <span class="section-label">Contact</span>
+              <h2 class="section-title">お問い合わせ</h2>
+              <div class="section-divider"></div>
+            </div>
+            <p class="contact-text">
+              SHIPに関するお問い合わせ、ご予約、取材のご依頼など、<br>お気軽にご連絡ください。
             </p>
+            <div class="contact-buttons">
+              <a href="mailto:info@example.com" class="btn-contact btn-mail">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+                  <path d="M22 4L12 13L2 4"></path>
+                </svg>
+                Mail
+              </a>
+              <a href="#" class="btn-contact btn-instagram">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="2" y="2" width="20" height="20" rx="5"></rect>
+                  <circle cx="12" cy="12" r="5"></circle>
+                  <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"></circle>
+                </svg>
+                Instagram
+              </a>
+            </div>
           </div>
+        </div>
+      </section>
 
-          <div class="access-hours">
-            <h4>営業時間</h4>
-            <p>オープン時にお知らせいたします</p>
+      <!-- Footer -->
+      <footer class="footer">
+        <div class="footer-inner">
+          <div class="footer-brand">
+            <div class="footer-logo"><img src="images/common/logo-ship.png" alt="SHIP" class="footer-logo-img"></div>
+            <p class="footer-tagline">南房総のローカル複合施設</p>
           </div>
+          <nav class="footer-nav">
+            <a href="#concept">Concept</a>
+            <a href="#news">News</a>
+            <a href="#access">Access</a>
+            <a href="#contact">Contact</a>
+          </nav>
         </div>
-      </div>
-    </div>
-  </section>
+        <p class="footer-copy">&copy; 2026 SHIP. All rights reserved.</p>
+      </footer>
 
-  <!-- ========== Contact ========== -->
-  <section class="contact" id="contact">
-    <div class="container">
-      <div class="fade-in">
-        <span class="section-label">Contact</span>
-        <h2 class="section-title">お問い合わせ</h2>
-        <p class="contact-text">
-          SHIPに関するお問い合わせ、ご予約、取材のご依頼など、お気軽にご連絡ください。
-        </p>
-        <div class="contact-buttons">
-          <a href="mailto:info@example.com" class="btn-contact btn-mail">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="2" y="4" width="20" height="16" rx="2"></rect>
-              <path d="M22 4L12 13L2 4"></path>
-            </svg>
-            メールで問い合わせ
-          </a>
-          <a href="#" class="btn-contact btn-instagram">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="2" y="2" width="20" height="20" rx="5"></rect>
-              <circle cx="12" cy="12" r="5"></circle>
-              <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"></circle>
-            </svg>
-            Instagram
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========== Footer ========== -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-inner">
-        <div class="footer-brand">
-          <div class="logo">SHIP</div>
-          <p class="footer-tagline">南房総のローカル複合施設</p>
-        </div>
-        <nav class="footer-nav">
-          <a href="#concept">コンセプト</a>
-          <a href="#facilities">施設紹介</a>
-          <a href="#news">お知らせ</a>
-          <a href="#access">アクセス</a>
-          <a href="#contact">お問い合わせ</a>
-        </nav>
-      </div>
-      <p class="footer-copy">&copy; 2026 SHIP. All rights reserved.</p>
-    </div>
-  </footer>
+    </main>
+  </div>
 
   <script src="js/script.js"></script>
+  <script src="js/news.js"></script>
+  <script>renderNewsList();</script>
 
 </body>
 </html>

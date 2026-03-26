@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>宿泊 | SHIP</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/page.css">
+  <link rel="stylesheet" href="../css/stay.css">
+</head>
+<body>
+  <!-- Mobile Header -->
+  <header class="mobile-header" id="mobile-header">
+    <a href="../index.html" class="logo"><img src="../images/common/logo-ship.png" alt="SHIP" class="mobile-header-logo"></a>
+    <button class="hamburger" id="hamburger" aria-label="メニュー">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+  <nav class="nav-mobile" id="nav-mobile">
+    <a href="../index.html">Top</a>
+    <a href="../index.html#concept">Concept</a>
+    <a href="../index.html#news">News</a>
+    <a href="../index.html#access">Access</a>
+    <a href="../index.html#contact">Contact</a>
+  </nav>
+
+  <div class="site-layout">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-top">
+        <a href="../index.html" class="sidebar-logo">
+          <img src="../images/common/logo-ship.png" alt="SHIP">
+        </a>
+      </div>
+      <div class="sidebar-tags">
+        <a class="hashtag active" href="stay.html" data-image="../images/stay/hero.jpg">#宿泊</a>
+        <a class="hashtag" href="coffee.html" data-image="../images/coffee/hero.jpg">#コーヒー</a>
+        <a class="hashtag" href="training.html" data-image="../images/training/hero.jpg">#企業研修</a>
+        <a class="hashtag" href="pizza.html" data-image="../images/pizza/hero.jpg">#ピザ作り体験</a>
+        <a class="hashtag" href="cafe.html" data-image="../images/cafe/hero.jpg">#カフェ</a>
+        <a class="hashtag" href="bonfire.html" data-image="../images/bonfire/hero.jpg">#焚き火</a>
+        <a class="hashtag" href="diy.html" data-image="../images/diy/hero.jpg">#DIYワークショップ</a>
+        <a class="hashtag" href="bbq.html" data-image="../images/bbq/hero.jpg">#BBQ</a>
+        <a class="hashtag" href="goat.html" data-image="../images/goat/hero.jpg">#ヤギ</a>
+        <a class="hashtag" href="beer.html" data-image="../images/beer/hero.jpg">#クラフトビール</a>
+        <a class="hashtag" href="park.html" data-image="../images/park/hero.jpg">#公園</a>
+        <a class="hashtag" href="event.html" data-image="../images/event/hero.jpg">#イベント</a>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="../index.html#concept">Concept</a>
+        <a href="../index.html#news">News</a>
+        <a href="../index.html#access">Access</a>
+        <a href="../index.html#contact">Contact</a>
+      </nav>
+    </aside>
+
+    <main class="main-content">
+
+      <!-- ===== Hero ===== -->
+      <section class="page-hero">
+        <img src="../images/stay/hero.jpg" alt="SHIP 宿泊" class="page-hero-image">
+      </section>
+
+      <!-- ===== Intro ===== -->
+      <section class="stay-intro">
+        <div class="page-inner">
+          <span class="page-tag">#宿泊</span>
+          <h1 class="page-title">Stay at SHIP</h1>
+          <p class="stay-lead">海と山に抱かれた南房総で、日常から少し離れた滞在を。窓を開けると聞こえる波の音、朝もやの中を散歩する贅沢。SHIPの宿泊は、ただ泊まるだけでなく、この土地と暮らしを体験する時間です。</p>
+          <div class="stay-info-bar">
+            <div class="stay-info-item">
+              <span class="stay-info-label">Check in</span>
+              <span class="stay-info-value">15:00</span>
+            </div>
+            <div class="stay-info-item">
+              <span class="stay-info-label">Check out</span>
+              <span class="stay-info-value">10:00</span>
+            </div>
+            <div class="stay-info-item">
+              <span class="stay-info-label">Parking</span>
+              <span class="stay-info-value">無料</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== Room Types ===== -->
+      <section class="stay-rooms" id="rooms">
+        <div class="page-inner">
+          <h2 class="stay-section-title">Room Types</h2>
+
+          <!-- Tab Navigation -->
+          <div class="room-tabs">
+            <button class="room-tab active" data-room="standard">Standard</button>
+            <button class="room-tab" data-room="deluxe">Deluxe</button>
+            <button class="room-tab" data-room="suite">Suite</button>
+          </div>
+
+          <!-- Room: Standard -->
+          <div class="room-detail active" id="room-standard">
+            <div class="room-slider">
+              <div class="room-slider-track">
+                <div class="room-slide active">
+                  <div class="room-slide-placeholder"><span>Standard - 写真 1</span></div>
+                </div>
+                <div class="room-slide">
+                  <div class="room-slide-placeholder"><span>Standard - 写真 2</span></div>
+                </div>
+                <div class="room-slide">
+                  <div class="room-slide-placeholder"><span>Standard - 写真 3</span></div>
+                </div>
+              </div>
+              <button class="room-slider-btn prev" aria-label="前の写真">&lsaquo;</button>
+              <button class="room-slider-btn next" aria-label="次の写真">&rsaquo;</button>
+              <div class="room-slider-dots">
+                <button class="room-dot active" data-index="0"></button>
+                <button class="room-dot" data-index="1"></button>
+                <button class="room-dot" data-index="2"></button>
+              </div>
+            </div>
+
+            <div class="room-info">
+              <h3 class="room-name">Standard Room</h3>
+              <p class="room-description">シンプルで心地よいスタンダードルーム。大きな窓から自然光が差し込み、木のぬくもりを感じるインテリアで落ち着いた時間を過ごせます。ソロトリップやカップルにおすすめ。</p>
+              <div class="room-specs">
+                <div class="room-spec">
+                  <span class="room-spec-label">定員</span>
+                  <span class="room-spec-value">2名</span>
+                </div>
+                <div class="room-spec">
+                  <span class="room-spec-label">面積</span>
+                  <span class="room-spec-value">22m&sup2;</span>
+                </div>
+                <div class="room-spec">
+                  <span class="room-spec-label">料金</span>
+                  <span class="room-spec-value price">&yen;12,000〜 <small>/泊（税込）</small></span>
+                </div>
+              </div>
+              <a href="#" class="room-reserve-btn">予約・お問い合わせ</a>
+            </div>
+
+            <!-- こだわりポイント -->
+            <div class="room-features">
+              <h4 class="room-features-title">Features</h4>
+              <div class="room-features-grid">
+                <div class="room-feature-card">
+                  <div class="room-feature-img"><span>Photo</span></div>
+                  <div class="room-feature-text">
+                    <h5>天然木のインテリア</h5>
+                    <p>地元・南房総産の杉材を使用した温もりあるしつらえ。素足で過ごしたくなる心地よさです。</p>
+                  </div>
+                </div>
+                <div class="room-feature-card">
+                  <div class="room-feature-img"><span>Photo</span></div>
+                  <div class="room-feature-text">
+                    <h5>オーシャンビュー</h5>
+                    <p>大きな窓から太平洋を一望。朝日が差し込む目覚めは格別です。</p>
+                  </div>
+                </div>
+                <div class="room-feature-card">
+                  <div class="room-feature-img"><span>Photo</span></div>
+                  <div class="room-feature-text">
+                    <h5>SHIPオリジナル寝具</h5>
+                    <p>快適な睡眠のためにセレクトしたマットレスとリネン。旅先でもぐっすり眠れます。</p>
+                  </div>
+                </div>
+                <div class="room-feature-card">
+                  <div class="room-feature-img"><span>Photo</span></div>
+                  <div class="room-feature-text">
+                    <h5>オリジナルコーヒー</h5>
+                    <p>SHIPカフェの豆を客室でも。ハンドドリップセット付きで本格的な一杯を楽しめます。</p>
+                  </div>
+                </div>
+                <div class="room-feature-card">
+                  <div class="room-feature-img"><span>Photo</span></div>
+                  <div class="room-feature-text">
+                    <h5>ナチュラルアメニティ</h5>
+                    <p>環境にやさしいオーガニックのシャンプー・ボディソープを全室に備えています。</p>
+                  </div>
+                </div>
+                <div class="room-feature-card">
+                  <div class="room-feature-img"><span>Photo</span></div>
+                  <div class="room-feature-text">
+                    <h5>ワークスペース</h5>
+                    <p>Wi-Fi完備のデスクスペース。ワーケーション利用にも対応しています。</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Room: Deluxe -->
+          <div class="room-detail" id="room-deluxe">
+            <div class="room-slider">
+              <div class="room-slider-track">
+                <div class="room-slide active">
+                  <div class="room-slide-placeholder"><span>Deluxe - 写真 1</span></div>
+                </div>
+                <div class="room-slide">
+                  <div class="room-slide-placeholder"><span>Deluxe - 写真 2</span></div>
+                </div>
+                <div class="room-slide">
+                  <div class="room-slide-placeholder"><span>Deluxe - 写真 3</span></div>
+                </div>
+              </div>
+              <button class="room-slider-btn prev" aria-label="前の写真">&lsaquo;</button>
+              <button class="room-slider-btn next" aria-label="次の写真">&rsaquo;</button>
+              <div class="room-slider-dots">
+                <button class="room-dot active" data-index="0"></button>
+                <button class="room-dot" data-index="1"></button>
+                <button class="room-dot" data-index="2"></button>
+              </div>
+            </div>
+
+            <div class="room-info">
+              <h3 class="room-name">Deluxe Room</h3>
+              <p class="room-description">より広々としたデラックスルーム。ゆったりとしたソファスペースとワークデスクを備え、長期滞在やワーケーションにも対応。テラスからは南房総の景色を一望できます。</p>
+              <div class="room-specs">
+                <div class="room-spec">
+                  <span class="room-spec-label">定員</span>
+                  <span class="room-spec-value">3名</span>
+                </div>
+                <div class="room-spec">
+                  <span class="room-spec-label">面積</span>
+                  <span class="room-spec-value">35m&sup2;</span>
+                </div>
+                <div class="room-spec">
+                  <span class="room-spec-label">料金</span>
+                  <span class="room-spec-value price">&yen;22,000〜 <small>/泊（税込）</small></span>
+                </div>
+              </div>
+              <a href="#" class="room-reserve-btn">予約・お問い合わせ</a>
+            </div>
+
+            <!-- こだわりポイント -->
+            <div class="room-features">
+              <h4 class="room-features-title">Features</h4>
+              <div class="room-features-grid">
+                <div class="room-feature-card">
+                  <div class="room-feature-img"><span>Photo</span></div>
+                  <div class="room-feature-text">
+                    <h5>広々リビングスペース</h5>
+                    <p>ソファとローテーブルを配したくつろぎのリビング。家族や仲間との団らんに。</p>
+                  </div>
+                </div>
+                <div class="room-feature-card">
+                  <div class="room-feature-img"><span>Photo</span></div>
+                  <div class="room-feature-text">
+                    <h5>プライベートテラス</h5>
+                    <p>専用テラスで朝食やコーヒータイムを。南房総の風を感じながら過ごせます。</p>
+                  </div>
+                </div>
+                <div class="room-feature-card">
+                  <div class="room-feature-img"><span>Photo</span></div>
+                  <div class="room-feature-text">
+                    <h5>レインシャワー</h5>
+                    <p>大型のレインシャワーヘッドで、一日の疲れを洗い流す贅沢なバスタイム。</p>
+                  </div>
+                </div>
+                <div class="room-feature-card">
+                  <div class="room-feature-img"><span>Photo</span></div>
+                  <div class="room-feature-text">
+                    <h5>Bluetoothスピーカー</h5>
+                    <p>お気に入りの音楽を高品質スピーカーで。部屋全体に心地よい音が広がります。</p>
+                  </div>
+                </div>
+                <div class="room-feature-card">
+                  <div class="room-feature-img"><span>Photo</span></div>
+                  <div class="room-feature-text">
+                    <h5>ミニキッチン</h5>
+                    <p>シンクとIHヒーター付き。地元の食材を買って簡単な調理も楽しめます。</p>
+                  </div>
+                </div>
+                <div class="room-feature-card">
+                  <div class="room-feature-img"><span>Photo</span></div>
+                  <div class="room-feature-text">
+                    <h5>ワーケーション対応</h5>
+                    <p>広めのデスクとモニター接続端子を完備。長期滞在でも快適に仕事ができます。</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Room: Suite -->
+          <div class="room-detail" id="room-suite">
+            <div class="room-slider">
+              <div class="room-slider-track">
+                <div class="room-slide active">
+                  <div class="room-slide-placeholder"><span>Suite - 写真 1</span></div>
+                </div>
+                <div class="room-slide">
+                  <div class="room-slide-placeholder"><span>Suite - 写真 2</span></div>
+                </div>
+                <div class="room-slide">
+                  <div class="room-slide-placeholder"><span>Suite - 写真 3</span></div>
+                </div>
+              </div>
+              <button class="room-slider-btn prev" aria-label="前の写真">&lsaquo;</button>
+              <button class="room-slider-btn next" aria-label="次の写真">&rsaquo;</button>
+              <div class="room-slider-dots">
+                <button class="room-dot active" data-index="0"></button>
+                <button class="room-dot" data-index="1"></button>
+                <button class="room-dot" data-index="2"></button>
+              </div>
+            </div>
+
+            <div class="room-info">
+              <h3 class="room-name">Suite Room</h3>
+              <p class="room-description">SHIPで最も贅沢なスイートルーム。リビング・ベッドルームが分かれた広々とした空間で、プライベートテラスにはハンモック付き。特別な記念日や、家族でのゆったりとした滞在に。</p>
+              <div class="room-specs">
+                <div class="room-spec">
+                  <span class="room-spec-label">定員</span>
+                  <span class="room-spec-value">4名</span>
+                </div>
+                <div class="room-spec">
+                  <span class="room-spec-label">面積</span>
+                  <span class="room-spec-value">55m&sup2;</span>
+                </div>
+                <div class="room-spec">
+                  <span class="room-spec-label">料金</span>
+                  <span class="room-spec-value price">&yen;38,000〜 <small>/泊（税込）</small></span>
+                </div>
+              </div>
+              <a href="#" class="room-reserve-btn">予約・お問い合わせ</a>
+            </div>
+
+            <!-- こだわりポイント -->
+            <div class="room-features">
+              <h4 class="room-features-title">Features</h4>
+              <div class="room-features-grid">
+                <div class="room-feature-card">
+                  <div class="room-feature-img"><span>Photo</span></div>
+                  <div class="room-feature-text">
+                    <h5>セパレートリビング</h5>
+                    <p>ベッドルームと独立したリビングルーム。プライベートな時間と団らんの時間を使い分けられます。</p>
+                  </div>
+                </div>
+                <div class="room-feature-card">
+                  <div class="room-feature-img"><span>Photo</span></div>
+                  <div class="room-feature-text">
+                    <h5>ハンモック付きテラス</h5>
+                    <p>広いプライベートテラスにハンモックを設置。波の音を聞きながらのんびり読書を。</p>
+                  </div>
+                </div>
+                <div class="room-feature-card">
+                  <div class="room-feature-img"><span>Photo</span></div>
+                  <div class="room-feature-text">
+                    <h5>ビューバス</h5>
+                    <p>窓の外に広がる景色を楽しめるバスルーム。特別なバスタイムをお過ごしください。</p>
+                  </div>
+                </div>
+                <div class="room-feature-card">
+                  <div class="room-feature-img"><span>Photo</span></div>
+                  <div class="room-feature-text">
+                    <h5>プレミアム寝具</h5>
+                    <p>最上級のマットレスとオーガニックコットンのリネン。極上の眠りをお約束します。</p>
+                  </div>
+                </div>
+                <div class="room-feature-card">
+                  <div class="room-feature-img"><span>Photo</span></div>
+                  <div class="room-feature-text">
+                    <h5>フルキッチン</h5>
+                    <p>本格的な調理が可能なキッチン。地元の魚介や野菜で料理を楽しめます。</p>
+                  </div>
+                </div>
+                <div class="room-feature-card">
+                  <div class="room-feature-img"><span>Photo</span></div>
+                  <div class="room-feature-text">
+                    <h5>ウェルカムドリンク</h5>
+                    <p>SHIPオリジナルのクラフトビールまたはジュースでお出迎え。到着の瞬間から特別な時間を。</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ===== Common Amenities ===== -->
+      <section class="stay-amenities">
+        <div class="page-inner">
+          <h2 class="stay-section-title">Amenities & Facilities</h2>
+          <div class="amenity-group">
+            <h3 class="amenity-group-label">客室</h3>
+            <p class="amenity-inline">エアコン / 無料Wi-Fi / テレビ / 冷蔵庫 / 電子レンジ / 電気ケトル / コーヒーメーカー / お茶セット / デスク / セーフティボックス / ルームウェア / スリッパ / ハンガー</p>
+          </div>
+          <div class="amenity-group">
+            <h3 class="amenity-group-label">バスルーム</h3>
+            <p class="amenity-inline">バスタオル / フェイスタオル / シャンプー / コンディショナー / ボディソープ / 歯ブラシセット / ドライヤー</p>
+          </div>
+          <div class="amenity-group">
+            <h3 class="amenity-group-label">有料オプション</h3>
+            <p class="amenity-inline amenity-options"><a href="cycle.html" class="amenity-link">#レンタサイクル</a> / <a href="bbq.html" class="amenity-link">#BBQセット</a> / <a href="sauna.html" class="amenity-link">#サウナ利用</a> / <a href="cafe.html" class="amenity-link">#朝食</a> / レイトチェックアウト</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== Back ===== -->
+      <div class="page-back">
+        <a href="../index.html" class="back-link">&larr; Back to Top</a>
+      </div>
+
+    </main>
+  </div>
+
+  <script src="../js/page.js"></script>
+  <script src="../js/stay.js"></script>
+</body>
+</html>
