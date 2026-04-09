@@ -505,14 +505,18 @@ ul {
 
 .concept-photo-1 {
   background-image: url('../images/concept/concept_1.JPG');
-  padding: 48px 24px;
+  padding: 80px 24px;
   margin-bottom: 56px;
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .concept-photo-2 {
   background-image: url('../images/concept/conceput_2.JPG');
-  padding: 40px 24px;
-  margin: 28px 0;
+  padding: 64px 24px;
+  margin: 28px auto;
+  max-width: 480px;
 }
 
 .concept-keyword-group {
