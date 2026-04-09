@@ -489,10 +489,11 @@ ul {
 
 /* Concept image */
 .concept-image {
-  width: 100%;
+  width: 60%;
+  max-width: 400px;
   border-radius: 12px;
   object-fit: cover;
-  margin-bottom: 56px;
+  margin: 0 auto 48px;
 }
 
 /* Keywords */
