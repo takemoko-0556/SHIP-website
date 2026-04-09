@@ -475,79 +475,125 @@ ul {
 }
 
 /* ========================================
-   About
+   Concept
 ======================================== */
-.about {
+.concept {
   background: var(--white);
 }
 
-.about-content {
+.concept-content {
   max-width: 680px;
   margin: 0 auto;
   text-align: center;
 }
 
-.about-keywords {
+.concept-keywords {
   display: flex;
   justify-content: center;
-  gap: 24px;
+  gap: 16px;
   margin-bottom: 56px;
 }
 
-.about-keyword-item {
+.concept-keyword-item {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   gap: 6px;
-  background: var(--gray-100);
   border-radius: 12px;
-  padding: 20px 28px;
+  padding: 32px 28px;
+  flex: 1;
+  background: url('../images/concept/concept_1.JPG') center / cover no-repeat;
+  position: relative;
+  overflow: hidden;
+  min-height: 120px;
 }
 
-.about-keyword-en {
+.concept-keyword-item::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+  border-radius: 12px;
+}
+
+.concept-keyword-item > * {
+  position: relative;
+  z-index: 1;
+}
+
+.concept-keyword-item-sub {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  border-radius: 12px;
+  padding: 28px 24px;
+  flex: 1;
+  background: url('../images/concept/conceput_2.JPG') center / cover no-repeat;
+  position: relative;
+  overflow: hidden;
+  min-height: 100px;
+}
+
+.concept-keyword-item-sub::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+  border-radius: 12px;
+}
+
+.concept-keyword-item-sub > * {
+  position: relative;
+  z-index: 1;
+}
+
+.concept-keyword-en {
   font-size: 17px;
   font-weight: 500;
   letter-spacing: 0.04em;
-  color: var(--black);
+  color: var(--white);
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
 }
 
-.about-keyword-ja {
+.concept-keyword-ja {
   font-size: 11px;
   letter-spacing: 0.1em;
-  color: var(--gray-500);
+  color: rgba(255, 255, 255, 0.85);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
 }
 
-.about-body {
+.concept-body {
   text-align: center;
   margin-bottom: 48px;
 }
 
-.about-text {
+.concept-text {
   font-size: 14px;
   color: var(--gray-600);
   line-height: 2.4;
   letter-spacing: 0.04em;
 }
 
-.about-ship {
+.concept-ship {
   color: var(--brand);
   font-weight: 700;
 }
 
-.about-keywords-sub {
+.concept-keywords-sub {
   display: flex;
   justify-content: center;
-  gap: 24px;
+  gap: 16px;
   margin: 28px 0;
 }
 
-.about-closing {
-  background: var(--gray-100);
-  border-radius: 16px;
-  padding: 40px;
+.concept-closing {
+  padding: 0;
 }
 
-.about-closing .about-text {
+.concept-closing .concept-text {
   color: var(--black);
   font-weight: 400;
   line-height: 2.6;
@@ -939,16 +985,18 @@ ul {
     gap: 40px;
   }
 
-  .about-keyword-item {
-    padding: 16px 20px;
+  .concept-keyword-item {
+    padding: 24px 16px;
+    min-height: 100px;
   }
 
-  .about-keyword-en {
+  .concept-keyword-item-sub {
+    padding: 20px 16px;
+    min-height: 80px;
+  }
+
+  .concept-keyword-en {
     font-size: 15px;
-  }
-
-  .about-closing {
-    padding: 32px 24px;
   }
 }
 
@@ -1042,21 +1090,17 @@ ul {
     justify-content: center;
   }
 
-  .about-keywords {
+  .concept-keywords {
     flex-direction: column;
     gap: 12px;
   }
 
-  .about-keywords-sub {
+  .concept-keywords-sub {
     flex-direction: column;
     gap: 12px;
   }
 
-  .about-text br {
+  .concept-text br {
     display: none;
-  }
-
-  .about-closing {
-    padding: 28px 20px;
   }
 }
