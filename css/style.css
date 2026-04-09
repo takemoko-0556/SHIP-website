@@ -487,44 +487,25 @@ ul {
   text-align: center;
 }
 
-/* Photo cards */
-.concept-photo {
+/* Concept image */
+.concept-image {
+  width: 100%;
   border-radius: 12px;
-  position: relative;
-  overflow: hidden;
-  background-size: cover;
-  background-position: center;
-}
-
-.concept-photo::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.4);
-}
-
-.concept-photo-1 {
-  background-image: url('../images/concept/concept_1.JPG');
-  padding: 80px 24px;
+  object-fit: cover;
   margin-bottom: 56px;
-  max-width: 480px;
-  margin-left: auto;
-  margin-right: auto;
 }
 
-.concept-photo-2 {
-  background-image: url('../images/concept/conceput_2.JPG');
-  padding: 64px 24px;
-  margin: 28px auto;
-  max-width: 480px;
-}
-
+/* Keywords */
 .concept-keyword-group {
-  position: relative;
-  z-index: 1;
   display: flex;
   justify-content: center;
   gap: 40px;
+  margin-bottom: 56px;
+}
+
+.concept-keyword-group-sub {
+  margin-bottom: 0;
+  margin: 28px 0;
 }
 
 .concept-keyword {
@@ -535,18 +516,16 @@ ul {
 }
 
 .concept-keyword-en {
-  font-size: 17px;
-  font-weight: 500;
+  font-size: 18px;
+  font-weight: 600;
   letter-spacing: 0.04em;
-  color: var(--white);
-  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+  color: var(--black);
 }
 
 .concept-keyword-ja {
   font-size: 11px;
   letter-spacing: 0.1em;
-  color: rgba(255, 255, 255, 0.85);
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  color: var(--gray-500);
 }
 
 /* Body text */
@@ -960,14 +939,6 @@ ul {
   .access-grid {
     grid-template-columns: 1fr;
     gap: 40px;
-  }
-
-  .concept-photo-1 {
-    padding: 36px 16px;
-  }
-
-  .concept-photo-2 {
-    padding: 32px 16px;
   }
 
   .concept-keyword-group {
