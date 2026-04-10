@@ -116,12 +116,34 @@ if (heroMainImage) {
 }
 
 // Change hero image with crossfade (returns Promise)
+let fadeTimeout = null;
+let currentResolve = null;
+
+function cancelTransition() {
+  if (fadeTimeout) {
+    clearTimeout(fadeTimeout);
+    fadeTimeout = null;
+  }
+  if (currentResolve) {
+    currentResolve();
+    currentResolve = null;
+  }
+  heroNextImage.classList.remove('visible');
+  isTransitioning = false;
+}
+
 function changeHeroImage(newSrc) {
   return new Promise((resolve) => {
     if (!heroMainImage || !heroNextImage) { resolve(); return; }
-    if (heroMainImage.src.endsWith(newSrc) || isTransitioning) { resolve(); return; }
+    if (heroMainImage.src.endsWith(newSrc)) { resolve(); return; }
+
+    // Cancel any in-progress transition
+    if (isTransitioning) {
+      cancelTransition();
+    }
 
     isTransitioning = true;
+    currentResolve = resolve;
 
     const preload = new Image();
     preload.onload = () => {
@@ -129,14 +151,16 @@ function changeHeroImage(newSrc) {
       heroNextImage.classList.add('visible');
       updateCatchphraseColor(preload);
 
-      setTimeout(() => {
+      fadeTimeout = setTimeout(() => {
         heroMainImage.src = newSrc;
         heroNextImage.classList.remove('visible');
         isTransitioning = false;
+        fadeTimeout = null;
+        currentResolve = null;
         resolve();
       }, 500);
     };
-    preload.onerror = () => { isTransitioning = false; resolve(); };
+    preload.onerror = () => { isTransitioning = false; currentResolve = null; resolve(); };
     preload.src = newSrc;
   });
 }
