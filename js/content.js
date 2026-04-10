@@ -60,6 +60,20 @@ async function renderContent() {
   }
   if (bodyEl) bodyEl.innerHTML = content.body;
 
+  // Render gallery if images exist
+  const galleryEl = document.getElementById('content-gallery');
+  if (galleryEl && content.gallery && content.gallery.length > 0) {
+    galleryEl.style.display = '';
+    const gridEl = galleryEl.querySelector('.gallery-grid');
+    if (gridEl) {
+      gridEl.innerHTML = content.gallery.map(img =>
+        `<div class="gallery-item">
+          <img src="${img.url}" alt="${content.title}" loading="lazy">
+        </div>`
+      ).join('');
+    }
+  }
+
   // Update page title
   document.title = `${content.title} | SHIP`;
 
