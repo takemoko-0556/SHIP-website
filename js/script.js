@@ -115,29 +115,30 @@ if (heroMainImage) {
   }
 }
 
-// Change hero image with crossfade
+// Change hero image with crossfade (returns Promise)
 function changeHeroImage(newSrc) {
-  if (!heroMainImage || !heroNextImage) return;
-  if (heroMainImage.src.endsWith(newSrc) || isTransitioning) return;
+  return new Promise((resolve) => {
+    if (!heroMainImage || !heroNextImage) { resolve(); return; }
+    if (heroMainImage.src.endsWith(newSrc) || isTransitioning) { resolve(); return; }
 
-  isTransitioning = true;
+    isTransitioning = true;
 
-  // Preload the new image
-  const preload = new Image();
-  preload.onload = () => {
-    heroNextImage.src = newSrc;
-    heroNextImage.classList.add('visible');
+    const preload = new Image();
+    preload.onload = () => {
+      heroNextImage.src = newSrc;
+      heroNextImage.classList.add('visible');
+      updateCatchphraseColor(preload);
 
-    // Update catchphrase color based on new image
-    updateCatchphraseColor(preload);
-
-    setTimeout(() => {
-      heroMainImage.src = newSrc;
-      heroNextImage.classList.remove('visible');
-      isTransitioning = false;
-    }, 500);
-  };
-  preload.src = newSrc;
+      setTimeout(() => {
+        heroMainImage.src = newSrc;
+        heroNextImage.classList.remove('visible');
+        isTransitioning = false;
+        resolve();
+      }, 500);
+    };
+    preload.onerror = () => { isTransitioning = false; resolve(); };
+    preload.src = newSrc;
+  });
 }
 
 // Set active hashtag (sync both sidebar and mobile tags)
@@ -171,22 +172,34 @@ attachTagEvents(sidebarTags);
 attachTagEvents(mobileTags);
 
 // Auto-slide through hashtags
-function autoSlide() {
+let autoSlideTimeout;
+let autoSliding = false;
+
+async function autoSlide() {
+  if (autoSliding) return;
+  autoSliding = true;
+
   const nextIndex = (currentTagIndex + 1) % hashtags.length;
   setActiveTag(nextIndex);
   const imageSrc = hashtags[nextIndex].getAttribute('data-image');
   if (imageSrc) {
-    changeHeroImage(imageSrc);
+    await changeHeroImage(imageSrc);
+  }
+
+  autoSliding = false;
+  if (autoSlideTimeout !== null) {
+    autoSlideTimeout = setTimeout(autoSlide, 4000);
   }
 }
 
 function startAutoSlide() {
   stopAutoSlide();
-  autoSlideInterval = setInterval(autoSlide, 4000);
+  autoSlideTimeout = setTimeout(autoSlide, 4000);
 }
 
 function stopAutoSlide() {
-  clearInterval(autoSlideInterval);
+  clearTimeout(autoSlideTimeout);
+  autoSlideTimeout = null;
 }
 
 // Start auto-slide
