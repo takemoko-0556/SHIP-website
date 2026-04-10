@@ -67,10 +67,26 @@ async function renderContent() {
     const gridEl = galleryEl.querySelector('.gallery-grid');
     if (gridEl) {
       gridEl.innerHTML = content.gallery.map(img => {
-        const caption = img.alt || '';
+        const alt = img.alt || '';
+        if (!alt) {
+          return `<div class="gallery-item">
+            <img src="${img.url}" alt="" loading="lazy">
+          </div>`;
+        }
+        // 「タイトル」本文 のパターンを解析
+        const match = alt.match(/^「(.+?)」(.*)$/s);
+        let captionHtml = '';
+        if (match) {
+          captionHtml = `<span class="gallery-caption-title">${match[1]}</span>`;
+          if (match[2].trim()) {
+            captionHtml += `<span class="gallery-caption-desc">${match[2].trim()}</span>`;
+          }
+        } else {
+          captionHtml = `<span class="gallery-caption-title">${alt}</span>`;
+        }
         return `<div class="gallery-item">
-          <img src="${img.url}" alt="${caption}" loading="lazy">
-          ${caption ? `<div class="gallery-caption"><span>${caption}</span></div>` : ''}
+          <img src="${img.url}" alt="${alt}" loading="lazy">
+          <div class="gallery-caption">${captionHtml}</div>
         </div>`;
       }).join('');
     }
