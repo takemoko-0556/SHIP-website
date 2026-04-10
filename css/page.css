@@ -183,6 +183,163 @@
 }
 
 /* ========================================
+   CMS Rich Editor Body (.cms-body)
+   microCMSリッチエディタの出力を可愛くスタイリング
+======================================== */
+.content-loading {
+  font-size: 14px;
+  color: var(--gray-400);
+  text-align: center;
+  padding: 80px 0;
+}
+
+.cms-body {
+  font-size: 15px;
+  color: var(--gray-600);
+  line-height: 2.2;
+  max-width: 720px;
+}
+
+/* 見出し */
+.cms-body h2 {
+  font-size: 22px;
+  font-weight: 500;
+  color: var(--black);
+  margin: 56px 0 20px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid var(--gray-200);
+  letter-spacing: 0.06em;
+}
+
+.cms-body h2:first-child {
+  margin-top: 0;
+}
+
+.cms-body h3 {
+  font-size: 17px;
+  font-weight: 500;
+  color: var(--black);
+  margin: 40px 0 16px;
+  padding-left: 14px;
+  border-left: 3px solid var(--brand);
+  letter-spacing: 0.04em;
+}
+
+/* 段落 */
+.cms-body p {
+  margin-bottom: 20px;
+}
+
+.cms-body p:last-child {
+  margin-bottom: 0;
+}
+
+/* 画像 */
+.cms-body img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  margin: 24px 0;
+}
+
+.cms-body figure {
+  margin: 32px 0;
+}
+
+.cms-body figcaption {
+  font-size: 12px;
+  color: var(--gray-500);
+  text-align: center;
+  margin-top: 8px;
+}
+
+/* リンク */
+.cms-body a {
+  color: var(--brand);
+  text-decoration: underline;
+}
+
+.cms-body a:hover {
+  opacity: 0.7;
+}
+
+/* リスト */
+.cms-body ul,
+.cms-body ol {
+  margin: 20px 0;
+  padding-left: 24px;
+}
+
+.cms-body li {
+  margin-bottom: 10px;
+}
+
+/* テーブル（料金表など） */
+.cms-body table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin: 28px 0;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--gray-200);
+}
+
+.cms-body thead th {
+  background: var(--gray-100);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--black);
+  padding: 14px 20px;
+  text-align: left;
+  letter-spacing: 0.04em;
+}
+
+.cms-body tbody td {
+  font-size: 14px;
+  padding: 14px 20px;
+  border-top: 1px solid var(--gray-200);
+  color: var(--gray-600);
+}
+
+.cms-body tbody tr:hover {
+  background: var(--gray-100);
+}
+
+/* 引用 */
+.cms-body blockquote {
+  margin: 28px 0;
+  padding: 20px 24px;
+  background: var(--gray-100);
+  border-radius: 12px;
+  border-left: 4px solid var(--brand);
+  font-style: normal;
+  color: var(--gray-600);
+}
+
+/* 水平線 */
+.cms-body hr {
+  border: none;
+  height: 1px;
+  background: var(--gray-200);
+  margin: 40px 0;
+}
+
+/* 太字 */
+.cms-body strong {
+  font-weight: 700;
+  color: var(--black);
+}
+
+/* コード（あれば） */
+.cms-body code {
+  font-size: 13px;
+  background: var(--gray-100);
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+/* ========================================
    Back Link
 ======================================== */
 .page-back {

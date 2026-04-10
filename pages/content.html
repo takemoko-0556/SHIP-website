@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SHIP</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/page.css">
+</head>
+<body>
+  <!-- Mobile Header -->
+  <header class="mobile-header" id="mobile-header">
+    <a href="../index.html" class="logo"><img src="../images/common/logo-ship.png" alt="SHIP" class="mobile-header-logo"></a>
+    <button class="hamburger" id="hamburger" aria-label="メニュー">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+  <nav class="nav-mobile" id="nav-mobile">
+    <a href="../index.html">Top</a>
+    <a href="../index.html#concept">Concept</a>
+    <a href="../index.html#news">News</a>
+    <a href="../index.html#access">Access</a>
+    <a href="../index.html#contact">Contact</a>
+  </nav>
+
+  <div class="site-layout">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-top">
+        <a href="../index.html" class="sidebar-logo">
+          <img src="../images/common/logo-ship.png" alt="SHIP">
+        </a>
+      </div>
+      <div class="sidebar-tags">
+        <a class="hashtag" href="content.html?slug=stay" data-slug="stay">#宿泊</a>
+        <a class="hashtag" href="content.html?slug=coffee" data-slug="coffee">#コーヒー</a>
+        <a class="hashtag" href="content.html?slug=training" data-slug="training">#企業研修</a>
+        <a class="hashtag" href="content.html?slug=pizza" data-slug="pizza">#ピザ作り体験</a>
+        <a class="hashtag" href="content.html?slug=cafe" data-slug="cafe">#カフェ</a>
+        <a class="hashtag" href="content.html?slug=bonfire" data-slug="bonfire">#焚き火</a>
+        <a class="hashtag" href="content.html?slug=diy" data-slug="diy">#DIYワークショップ</a>
+        <a class="hashtag" href="content.html?slug=bbq" data-slug="bbq">#BBQ</a>
+        <a class="hashtag" href="content.html?slug=goat" data-slug="goat">#ヤギ</a>
+        <a class="hashtag" href="content.html?slug=beer" data-slug="beer">#クラフトビール</a>
+        <a class="hashtag" href="content.html?slug=park" data-slug="park">#公園</a>
+        <a class="hashtag" href="content.html?slug=event" data-slug="event">#イベント</a>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="../index.html#concept">Concept</a>
+        <a href="../index.html#news">News</a>
+        <a href="../index.html#access">Access</a>
+        <a href="../index.html#contact">Contact</a>
+      </nav>
+    </aside>
+
+    <main class="main-content">
+      <!-- Hero (hidden until content loads) -->
+      <section class="page-hero" style="display: none;">
+        <img src="" alt="" class="page-hero-image" id="content-hero">
+      </section>
+
+      <!-- Content -->
+      <section class="page-content">
+        <div class="page-inner">
+          <p id="content-loading" class="content-loading">読み込み中...</p>
+          <span class="page-tag" id="content-tag"></span>
+          <h1 class="page-title" id="content-title"></h1>
+          <div class="cms-body" id="content-body">
+            <!-- microCMS rich editor content rendered here -->
+          </div>
+        </div>
+      </section>
+
+      <div class="page-back">
+        <a href="../index.html" class="back-link">&larr; Back to Top</a>
+      </div>
+    </main>
+  </div>
+
+  <script src="../js/page.js"></script>
+  <script src="../js/content.js"></script>
+</body>
+</html>
