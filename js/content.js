@@ -66,11 +66,13 @@ async function renderContent() {
     galleryEl.style.display = '';
     const gridEl = galleryEl.querySelector('.gallery-grid');
     if (gridEl) {
-      gridEl.innerHTML = content.gallery.map(img =>
-        `<div class="gallery-item">
-          <img src="${img.url}" alt="${content.title}" loading="lazy">
-        </div>`
-      ).join('');
+      gridEl.innerHTML = content.gallery.map(img => {
+        const caption = img.alt || '';
+        return `<div class="gallery-item">
+          <img src="${img.url}" alt="${caption}" loading="lazy">
+          ${caption ? `<div class="gallery-caption"><span>${caption}</span></div>` : ''}
+        </div>`;
+      }).join('');
     }
   }
 
