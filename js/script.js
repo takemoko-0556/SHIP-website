@@ -180,10 +180,19 @@ async function autoSlide() {
   autoSliding = true;
 
   const nextIndex = (currentTagIndex + 1) % hashtags.length;
-  setActiveTag(nextIndex);
   const imageSrc = hashtags[nextIndex].getAttribute('data-image');
   if (imageSrc) {
+    // Preload first, then sync active tag + fade together
+    const preloaded = new Image();
+    await new Promise(resolve => {
+      preloaded.onload = resolve;
+      preloaded.onerror = resolve;
+      preloaded.src = imageSrc;
+    });
+    setActiveTag(nextIndex);
     await changeHeroImage(imageSrc);
+  } else {
+    setActiveTag(nextIndex);
   }
 
   autoSliding = false;
