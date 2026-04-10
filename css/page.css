@@ -228,7 +228,18 @@
   align-items: center;
   justify-content: center;
   gap: 16px;
-  min-height: calc(100vh - 200px);
+  min-height: 60vh;
+}
+
+/* 準備中の時はpage-contentのパディングを詰める */
+.content-coming-soon ~ .page-tag,
+.content-coming-soon ~ .page-title,
+.content-coming-soon ~ .cms-body {
+  display: none;
+}
+
+.page-content:has(.content-coming-soon) {
+  padding: 0;
 }
 
 .coming-soon-logo {
