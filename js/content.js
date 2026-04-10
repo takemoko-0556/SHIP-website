@@ -43,7 +43,14 @@ async function renderContent() {
   const loadingEl = document.getElementById('content-loading');
 
   if (!content) {
-    if (loadingEl) loadingEl.textContent = 'コンテンツが見つかりませんでした';
+    if (loadingEl) {
+      loadingEl.innerHTML = `
+        <div class="content-coming-soon">
+          <img src="../images/common/logo-symbol.png" alt="SHIP" class="coming-soon-logo">
+          <p class="coming-soon-text">準備中です</p>
+          <p class="coming-soon-sub">コンテンツは近日公開予定です。<br>お楽しみに！</p>
+        </div>`;
+    }
     return;
   }
 
