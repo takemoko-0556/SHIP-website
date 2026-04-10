@@ -135,7 +135,7 @@ function changeHeroImage(newSrc) {
       heroMainImage.src = newSrc;
       heroNextImage.classList.remove('visible');
       isTransitioning = false;
-    }, 800);
+    }, 500);
   };
   preload.src = newSrc;
 }
