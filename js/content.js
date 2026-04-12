@@ -68,7 +68,10 @@ async function renderContent() {
     heroEl.parentElement.style.display = '';
   }
   if (descEl && content.description) {
-    descEl.textContent = content.description;
+    // HTMLタグを除去してテキストのみ表示
+    const tmp = document.createElement('div');
+    tmp.innerHTML = content.description;
+    descEl.textContent = tmp.textContent;
   }
   if (bodyEl && content.body) {
     bodyEl.innerHTML = content.body;

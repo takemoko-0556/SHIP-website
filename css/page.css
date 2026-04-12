@@ -59,7 +59,6 @@
   font-size: 15px;
   color: var(--gray-600);
   line-height: 2.2;
-  max-width: 680px;
 }
 
 /* ========================================
@@ -266,7 +265,6 @@
   font-size: 15px;
   color: var(--gray-600);
   line-height: 2.2;
-  max-width: 720px;
 }
 
 /* 見出し */
