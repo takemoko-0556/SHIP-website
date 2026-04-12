@@ -350,6 +350,7 @@
   border-radius: 12px;
   overflow: hidden;
   border: 1px solid var(--gray-200);
+  table-layout: fixed;
 }
 
 .cms-body thead th {
@@ -362,11 +363,25 @@
   letter-spacing: 0.04em;
 }
 
+/* 最初の列（プラン名）は狭め、最後の列（料金）も狭め */
+.cms-body thead th:first-child,
+.cms-body tbody td:first-child {
+  width: 20%;
+}
+
+.cms-body thead th:last-child,
+.cms-body tbody td:last-child {
+  width: 20%;
+  text-align: right;
+  white-space: nowrap;
+}
+
 .cms-body tbody td {
   font-size: 14px;
   padding: 14px 20px;
   border-top: 1px solid var(--gray-200);
   color: var(--gray-600);
+  vertical-align: top;
 }
 
 .cms-body tbody tr:hover {
