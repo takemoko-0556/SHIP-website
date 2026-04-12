@@ -363,17 +363,30 @@
   letter-spacing: 0.04em;
 }
 
-/* 最初の列（プラン名）は狭め、最後の列（料金）も狭め */
+/* 最初の列（プラン名）は中央揃え */
 .cms-body thead th:first-child,
 .cms-body tbody td:first-child {
   width: 20%;
+  text-align: center;
 }
 
+/* 最後の列（料金）は右揃え */
 .cms-body thead th:last-child,
 .cms-body tbody td:last-child {
   width: 20%;
   text-align: right;
   white-space: nowrap;
+}
+
+/* 列の間に薄い縦線 */
+.cms-body thead th,
+.cms-body tbody td {
+  border-right: 1px solid var(--gray-200);
+}
+
+.cms-body thead th:last-child,
+.cms-body tbody td:last-child {
+  border-right: none;
 }
 
 .cms-body tbody td {
