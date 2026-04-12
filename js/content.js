@@ -35,11 +35,13 @@ async function renderContent() {
 
   const content = await fetchContentBySlug(slug);
 
-  // Title
+  // Elements
   const titleEl = document.getElementById('content-title');
   const tagEl = document.getElementById('content-tag');
+  const descEl = document.getElementById('content-description');
   const heroEl = document.getElementById('content-hero');
   const bodyEl = document.getElementById('content-body');
+  const bodySectionEl = document.getElementById('content-body-section');
   const loadingEl = document.getElementById('content-loading');
 
   if (!content) {
@@ -65,7 +67,13 @@ async function renderContent() {
     heroEl.alt = content.title;
     heroEl.parentElement.style.display = '';
   }
-  if (bodyEl) bodyEl.innerHTML = content.body;
+  if (descEl && content.description) {
+    descEl.textContent = content.description;
+  }
+  if (bodyEl && content.body) {
+    bodyEl.innerHTML = content.body;
+    if (bodySectionEl) bodySectionEl.style.display = '';
+  }
 
   // Render gallery if images exist
   const galleryEl = document.getElementById('content-gallery');
