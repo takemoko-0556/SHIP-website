@@ -363,11 +363,12 @@
   letter-spacing: 0.04em;
 }
 
-/* 最初の列（プラン名）は中央揃え */
+/* 最初の列（プラン名）は上下左右中央揃え */
 .cms-body thead th:first-child,
 .cms-body tbody td:first-child {
   width: 20%;
   text-align: center;
+  vertical-align: middle;
 }
 
 /* 最後の列（料金）は右揃え */
