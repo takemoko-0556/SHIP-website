@@ -765,7 +765,18 @@ ul {
   font-family: inherit;
 }
 
+.btn-contact-sub {
+  display: block;
+  font-size: 10px;
+  letter-spacing: 0.02em;
+  text-transform: none;
+  opacity: 0.6;
+  margin-top: 2px;
+}
+
 .btn-mail {
+  flex-wrap: wrap;
+  justify-content: center;
   background: var(--white);
   color: var(--black);
 }
