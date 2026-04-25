@@ -547,10 +547,23 @@ ul {
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
 }
 
-.about-feature-icon {
-  font-size: 28px;
-  display: block;
-  margin-bottom: 12px;
+.about-feature-img {
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 16px;
+}
+
+.about-feature-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.about-feature:hover .about-feature-img img {
+  transform: scale(1.05);
 }
 
 .about-feature h4 {
@@ -570,17 +583,6 @@ ul {
 .about-location {
   max-width: 680px;
   margin: 0 auto 64px;
-}
-
-.about-cta {
-  text-align: center;
-}
-
-.about-cta-text {
-  font-size: 18px;
-  font-weight: 500;
-  color: var(--black);
-  letter-spacing: 0.08em;
 }
 
 /* ========================================
