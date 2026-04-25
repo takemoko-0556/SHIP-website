@@ -765,6 +765,12 @@ ul {
   font-family: inherit;
 }
 
+.contact-mail-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .contact-email {
   font-size: 13px;
   color: rgba(255, 255, 255, 0.7);
