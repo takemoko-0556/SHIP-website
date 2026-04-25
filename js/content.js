@@ -44,10 +44,7 @@ async function renderContent() {
   const bodySectionEl = document.getElementById('content-body-section');
   const loadingEl = document.getElementById('content-loading');
 
-  const descText = content && content.description
-    ? (() => { const d = document.createElement('div'); d.innerHTML = content.description; return d.textContent; })()
-    : '';
-  const isHidden = descText.startsWith('【非公開】');
+  const isHidden = content && content.title && content.title.startsWith('【非公開】');
 
   if (!content || isHidden) {
     if (loadingEl) {
