@@ -496,6 +496,7 @@ ul {
 .about-story {
   max-width: 680px;
   margin: 0 auto 72px;
+  text-align: center;
 }
 
 .about-heading {
@@ -583,6 +584,14 @@ ul {
 .about-location {
   max-width: 680px;
   margin: 0 auto 64px;
+  text-align: center;
+}
+
+.about-location-image {
+  width: 100%;
+  border-radius: 12px;
+  margin-top: 32px;
+  object-fit: cover;
 }
 
 /* ========================================
