@@ -374,9 +374,8 @@
 /* 最後の列（料金）は右揃え */
 .cms-body thead th:last-child,
 .cms-body tbody td:last-child {
-  width: 20%;
+  width: 30%;
   text-align: right;
-  white-space: nowrap;
 }
 
 /* 列の間に薄い縦線 */
