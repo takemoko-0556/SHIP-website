@@ -44,7 +44,12 @@ async function renderContent() {
   const bodySectionEl = document.getElementById('content-body-section');
   const loadingEl = document.getElementById('content-loading');
 
-  if (!content) {
+  const descText = content && content.description
+    ? (() => { const d = document.createElement('div'); d.innerHTML = content.description; return d.textContent; })()
+    : '';
+  const isHidden = descText.startsWith('【非公開】');
+
+  if (!content || isHidden) {
     if (loadingEl) {
       loadingEl.innerHTML = `
         <div class="content-coming-soon">
@@ -52,6 +57,9 @@ async function renderContent() {
           <p class="coming-soon-text">準備中です</p>
           <p class="coming-soon-sub">コンテンツは近日公開予定です。<br>お楽しみに！</p>
         </div>`;
+    }
+    if (isHidden) {
+      document.title = `${content.title} | SHIP`;
     }
     return;
   }
