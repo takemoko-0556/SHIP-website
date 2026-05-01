@@ -80,10 +80,9 @@ ul {
 }
 
 .loading-logo {
-  font-size: 32px;
-  font-weight: 700;
-  color: var(--black);
-  letter-spacing: 0.3em;
+  display: block;
+  height: 56px;
+  width: auto;
   opacity: 0;
   transform: translateY(8px);
   animation: loadReveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards;
@@ -514,7 +513,7 @@ ul {
   font-weight: 500;
   color: var(--black);
   letter-spacing: 0.06em;
-  margin-top: 32px;
+  margin-top: 80px;
   margin-bottom: 20px;
 }
 
@@ -1054,6 +1053,19 @@ ul {
   .about-lead br,
   .about-text br {
     display: none;
+  }
+
+  .about-lead {
+    font-size: 14px;
+  }
+
+  .about-text {
+    font-size: 13px;
+  }
+
+  .about-heading {
+    font-size: 16px;
+    margin-top: 56px;
   }
 
   .about-inline-image,
