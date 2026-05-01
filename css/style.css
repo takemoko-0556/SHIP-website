@@ -958,7 +958,7 @@ ul {
 
 .reveal.visible {
   opacity: 1;
-  transform: translateY(0);
+  transform: none;
 }
 
 .reveal-left {
@@ -970,7 +970,7 @@ ul {
 
 .reveal-left.visible {
   opacity: 1;
-  transform: translateX(0);
+  transform: none;
 }
 
 .reveal-right {
@@ -982,7 +982,7 @@ ul {
 
 .reveal-right.visible {
   opacity: 1;
-  transform: translateX(0);
+  transform: none;
 }
 
 .reveal-scale {
@@ -994,7 +994,7 @@ ul {
 
 .reveal-scale.visible {
   opacity: 1;
-  transform: scale(1);
+  transform: none;
 }
 
 /* Stagger delays */
