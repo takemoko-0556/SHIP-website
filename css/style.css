@@ -549,8 +549,10 @@ ul {
 
 /* Concept image */
 .concept-image {
-  width: 60%;
-  max-width: 400px;
+  display: block;
+  width: 100%;
+  max-width: 880px;
+  aspect-ratio: 21 / 9;
   border-radius: 12px;
   object-fit: cover;
   margin: 0 auto 48px;
@@ -1052,7 +1054,8 @@ ul {
     display: none;
   }
 
-  .about-inline-image {
+  .about-inline-image,
+  .concept-image {
     aspect-ratio: 16 / 9;
     margin-bottom: 36px;
   }
