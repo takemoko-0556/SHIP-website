@@ -478,7 +478,7 @@ ul {
    About
 ======================================== */
 .about {
-  background: var(--gray-100);
+  background: var(--white);
 }
 
 .about-intro {
