@@ -397,10 +397,6 @@
   vertical-align: top;
 }
 
-.cms-body tbody tr:hover {
-  background: var(--gray-100);
-}
-
 /* 引用 */
 .cms-body blockquote {
   margin: 28px 0;
