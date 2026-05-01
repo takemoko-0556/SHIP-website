@@ -514,6 +514,7 @@ ul {
   font-weight: 500;
   color: var(--black);
   letter-spacing: 0.06em;
+  margin-top: 32px;
   margin-bottom: 20px;
 }
 
@@ -1050,7 +1051,8 @@ ul {
 }
 
 @media (max-width: 820px) {
-  .about-lead br {
+  .about-lead br,
+  .about-text br {
     display: none;
   }
 
