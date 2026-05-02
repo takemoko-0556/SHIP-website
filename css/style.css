@@ -971,6 +971,17 @@ ul {
   transform: translateY(-2px);
 }
 
+.btn-line {
+  background: transparent;
+  color: var(--white);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.btn-line:hover {
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: translateY(-2px);
+}
+
 /* ========================================
    Footer
 ======================================== */
