@@ -113,7 +113,12 @@
   transition: opacity 0.3s ease;
 }
 
-.gallery-item:hover .gallery-caption,
+@media (hover: hover) {
+  .gallery-item:hover .gallery-caption {
+    opacity: 1;
+  }
+}
+
 .gallery-item.is-active .gallery-caption {
   opacity: 1;
 }
