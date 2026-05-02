@@ -186,14 +186,59 @@ ul {
 }
 
 /* ========================================
+   Sidebar LINE CTA
+======================================== */
+.sidebar-line {
+  margin-bottom: 16px;
+  padding-top: 24px;
+  border-top: 1px solid var(--gray-200);
+  opacity: 0;
+  animation: sidebarReveal 1s cubic-bezier(0.16, 1, 0.3, 1) 1.7s forwards;
+}
+
+.sidebar-line-caption {
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: var(--gray-500);
+  margin-bottom: 10px;
+  line-height: 1.6;
+  text-align: center;
+}
+
+.sidebar-line-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 11px 14px;
+  background: #06C755;
+  color: #fff;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.sidebar-line-btn:hover {
+  opacity: 0.88;
+  transform: translateY(-1px);
+}
+
+.sidebar-line-btn svg {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+/* ========================================
    Sidebar Nav
 ======================================== */
 .sidebar-nav {
   display: flex;
   flex-direction: column;
   gap: 0;
-  padding-top: 24px;
-  border-top: 1px solid var(--gray-200);
+  padding-top: 16px;
   opacity: 0;
   animation: sidebarReveal 1s cubic-bezier(0.16, 1, 0.3, 1) 1.9s forwards;
 }
