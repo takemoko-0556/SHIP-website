@@ -494,6 +494,11 @@ body .sidebar-nav {
     padding: 48px 0 40px;
   }
 
+  /* When there's no page-hero, push page-content below the fixed mobile header */
+  .main-content > .page-content:first-child {
+    padding-top: 112px;
+  }
+
   .page-inner {
     padding: 0 24px;
   }
