@@ -66,14 +66,15 @@ function getBadgeClass(categoryName) {
 // ========================================
 // Build single news item HTML
 // ========================================
-function buildNewsItemHtml(article, index, detailHrefPrefix) {
+function buildNewsItemHtml(article, index, detailHrefPrefix, { reveal = true } = {}) {
   const date = formatDate(article.publishedAt);
   const categoryName = article.category ? article.category.name : 'お知らせ';
   const badgeClass = getBadgeClass(categoryName);
-  const delay = index > 0 ? ` data-delay="${index * 100}"` : '';
+  const classes = reveal ? 'news-item reveal' : 'news-item';
+  const delay = reveal && index > 0 ? ` data-delay="${index * 100}"` : '';
 
   return `
-      <a href="${detailHrefPrefix}?id=${article.id}" class="news-item reveal"${delay}>
+      <a href="${detailHrefPrefix}?id=${article.id}" class="${classes}"${delay}>
         <span class="news-date">${date}</span>
         <div class="news-content">
           <p><span class="news-badge ${badgeClass}">${categoryName}</span></p>
@@ -136,7 +137,7 @@ async function renderNewsListPage() {
   }
 
   const html = data.contents
-    .map((article, index) => buildNewsItemHtml(article, index, 'news.html'))
+    .map((article, index) => buildNewsItemHtml(article, index, 'news.html', { reveal: false }))
     .join('');
 
   container.innerHTML = html;
