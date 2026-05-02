@@ -8,7 +8,7 @@ const MICROCMS_ENDPOINT = 'news';
 const NEWS_API_URL = `https://${MICROCMS_SERVICE_ID}.microcms.io/api/v1/${MICROCMS_ENDPOINT}`;
 
 // ========================================
-// Fetch news list
+// Fetch news list (returns full microCMS response: contents, totalCount, ...)
 // ========================================
 async function fetchNewsList(limit = 10) {
   try {
@@ -16,8 +16,7 @@ async function fetchNewsList(limit = 10) {
       headers: { 'X-MICROCMS-API-KEY': MICROCMS_API_KEY }
     });
     if (!res.ok) throw new Error(`API error: ${res.status}`);
-    const data = await res.json();
-    return data.contents;
+    return await res.json();
   } catch (err) {
     console.error('Failed to fetch news:', err);
     return null;
@@ -65,40 +64,82 @@ function getBadgeClass(categoryName) {
 }
 
 // ========================================
-// Render news list on top page
+// Build single news item HTML
 // ========================================
-async function renderNewsList() {
-  const container = document.getElementById('news-list');
-  if (!container) return;
+function buildNewsItemHtml(article, index, detailHrefPrefix) {
+  const date = formatDate(article.publishedAt);
+  const categoryName = article.category ? article.category.name : 'お知らせ';
+  const badgeClass = getBadgeClass(categoryName);
+  const delay = index > 0 ? ` data-delay="${index * 100}"` : '';
 
-  const articles = await fetchNewsList(10);
-
-  // If API fails, keep the static fallback (noscript content)
-  if (!articles) return;
-
-  // Build HTML
-  const html = articles.map((article, index) => {
-    const date = formatDate(article.publishedAt);
-    const categoryName = article.category ? article.category.name : 'お知らせ';
-    const badgeClass = getBadgeClass(categoryName);
-    const delay = index > 0 ? ` data-delay="${index * 100}"` : '';
-
-    return `
-      <a href="pages/news.html?id=${article.id}" class="news-item reveal"${delay}>
+  return `
+      <a href="${detailHrefPrefix}?id=${article.id}" class="news-item reveal"${delay}>
         <span class="news-date">${date}</span>
         <div class="news-content">
           <p><span class="news-badge ${badgeClass}">${categoryName}</span></p>
           <p class="news-title">${article.title}</p>
         </div>
       </a>`;
-  }).join('');
+}
 
-  container.innerHTML = html;
+// ========================================
+// Render news list on top page (latest 3 + "もっとみる" button)
+// ========================================
+const TOP_NEWS_LIMIT = 3;
+
+async function renderNewsList() {
+  const container = document.getElementById('news-list');
+  if (!container) return;
+
+  const data = await fetchNewsList(TOP_NEWS_LIMIT);
+
+  // If API fails, keep the static fallback (noscript content)
+  if (!data || !data.contents) return;
+
+  const html = data.contents
+    .map((article, index) => buildNewsItemHtml(article, index, 'pages/news.html'))
+    .join('');
+
+  let moreBtnHtml = '';
+  if (data.totalCount > TOP_NEWS_LIMIT) {
+    moreBtnHtml = `
+      <div class="news-more reveal">
+        <a href="pages/news-list.html" class="news-more-btn">もっとみる</a>
+      </div>`;
+  }
+
+  container.innerHTML = html + moreBtnHtml;
 
   // Re-observe for scroll animations
   if (typeof revealObserver !== 'undefined') {
     container.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
   }
+}
+
+// ========================================
+// Render full news list page
+// ========================================
+async function renderNewsListPage() {
+  const container = document.getElementById('news-list-all');
+  if (!container) return;
+
+  const data = await fetchNewsList(100);
+
+  if (!data || !data.contents) {
+    container.innerHTML = '<div class="news-loading">お知らせを取得できませんでした。</div>';
+    return;
+  }
+
+  if (data.contents.length === 0) {
+    container.innerHTML = '<div class="news-loading">現在お知らせはありません。</div>';
+    return;
+  }
+
+  const html = data.contents
+    .map((article, index) => buildNewsItemHtml(article, index, 'news.html'))
+    .join('');
+
+  container.innerHTML = html;
 }
 
 // ========================================
