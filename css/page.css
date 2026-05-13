@@ -61,6 +61,19 @@
   line-height: 2.2;
 }
 
+.page-description p {
+  margin-bottom: 12px;
+}
+
+.page-description p:last-child {
+  margin-bottom: 0;
+}
+
+.page-description a {
+  color: var(--brand);
+  text-decoration: underline;
+}
+
 /* ========================================
    Page Gallery
 ======================================== */
