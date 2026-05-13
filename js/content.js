@@ -73,7 +73,23 @@ async function renderContent() {
     heroEl.parentElement.style.display = '';
   }
   if (descEl && content.description) {
-    descEl.innerHTML = content.description;
+    const desc = String(content.description);
+    if (/<[a-z][\s\S]*?>/i.test(desc)) {
+      descEl.innerHTML = desc;
+    } else {
+      descEl.innerHTML = desc
+        .split(/\r?\n/)
+        .map(line => line.trim())
+        .filter(Boolean)
+        .map(line => {
+          const escaped = line
+            .replace(/&/g, '&amp;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;');
+          return `<p>${escaped}</p>`;
+        })
+        .join('');
+    }
   }
   if (bodyEl && content.body) {
     bodyEl.innerHTML = content.body;
