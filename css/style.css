@@ -961,16 +961,15 @@ ul {
   margin-top: 2px;
 }
 
-.btn-mail {
-  flex-wrap: wrap;
-  justify-content: center;
-  background: var(--white);
-  color: var(--black);
+.contact-mail-link {
+  color: rgba(255, 255, 255, 0.85);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 0.2s ease;
 }
 
-.btn-mail:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(255, 255, 255, 0.1);
+.contact-mail-link:hover {
+  color: var(--white);
 }
 
 .btn-instagram {
