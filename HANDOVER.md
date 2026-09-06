@@ -76,7 +76,11 @@
 **ナビ項目を増減するときは 3 か所＋`pages/` 配下の全 HTML を同時に直す必要があります。**
 
 ### ハッシュタグ ⇔ ヒーロー画像の連動（js/script.js）
-- ハッシュタグに `data-image` 属性でヒーロー画像パスを持たせている
+- **ヒーロー画像は microCMS の `heroImage` が正**（2026-09-06〜）。
+  読み込み時に `hydrateHeroImagesFromCMS()`（`js/script.js`）が `contents` を取得し、
+  各ハッシュタグの `data-image` を CMS の画像 URL（w=1600・WebP 自動）で上書きする。
+  HTML の `data-image="images/xxx/hero.jpg"` は **CMS 取得失敗時のフォールバック**。
+  → **トップのヒーローを差し替えたいときは microCMS のコンテンツの `heroImage` を変更するだけ**。
 - **ホバー** すると 500ms のクロスフェードでヒーロー画像が切り替わる
 - **クリック** すると `pages/content.html?slug=xxx` に遷移する
 - 無操作時は 4 秒ごとに自動スライド（`startAutoSlide`）

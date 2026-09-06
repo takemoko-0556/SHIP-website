@@ -241,6 +241,58 @@ if (hashtags.length > 1) {
 }
 
 // ========================================
+// ヒーロー画像を microCMS の heroImage で上書き
+//   ハッシュタグの data-image（ローカル画像）はフォールバックとして残す
+//   ※ news.js の後に呼ぶこと（MICROCMS_SERVICE_ID / MICROCMS_API_KEY を利用）
+// ========================================
+async function hydrateHeroImagesFromCMS() {
+  const tags = document.querySelectorAll('.hashtag[data-slug]');
+  if (!tags.length || typeof MICROCMS_SERVICE_ID === 'undefined') return;
+
+  let contents;
+  try {
+    const res = await fetch(
+      `https://${MICROCMS_SERVICE_ID}.microcms.io/api/v1/contents?fields=slug,heroImage&limit=100`,
+      { headers: { 'X-MICROCMS-API-KEY': MICROCMS_API_KEY } }
+    );
+    if (!res.ok) return;
+    contents = (await res.json()).contents || [];
+  } catch (e) {
+    return; // 取得失敗時はローカル画像のまま
+  }
+
+  const heroBySlug = {};
+  contents.forEach(c => {
+    if (c.heroImage && c.heroImage.url) {
+      const u = c.heroImage.url;
+      const sep = u.indexOf('?') === -1 ? '?' : '&';
+      heroBySlug[c.slug] = `${u}${sep}w=1600&q=80&auto=format,compress`;
+    }
+  });
+
+  let activeSrc = null;
+  tags.forEach(tag => {
+    const src = heroBySlug[tag.getAttribute('data-slug')];
+    if (!src) return;
+    tag.setAttribute('data-image', src);
+    if (tag.classList.contains('active')) activeSrc = src;
+  });
+
+  // 初期表示のローカル画像がまだ出ているうちに CMS 画像へ差し替え
+  // （オートスライドが既に進んでいたら邪魔しない）
+  if (activeSrc && heroMainImage && !isTransitioning &&
+      heroMainImage.src.indexOf('images.microcms-assets.io') === -1) {
+    const pre = new Image();
+    pre.onload = () => {
+      if (isTransitioning) return;
+      heroMainImage.src = activeSrc;
+      updateCatchphraseColor(pre);
+    };
+    pre.src = activeSrc;
+  }
+}
+
+// ========================================
 // Smooth anchor scroll
 // ========================================
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
