@@ -5,7 +5,7 @@
 
 - リポジトリ: `takemoko-0556/SHIP-website`
 - 公開ドメイン（メタタグ上の想定）: https://ship-nanbo.com/
-- 最終更新: 2026-09-05 時点の `main` （`13c7102`）
+- 最終更新: 2026-09-06（画像最適化・ハッシュタグ整理・下層ページ統合）
 
 ---
 
@@ -61,7 +61,7 @@
 
 1. **Loading Cover** — `images/common/logo-ship.png` を 1 秒表示してフェードアウト（`js/script.js`）
 2. **Mobile Header + ハンバーガーメニュー** — 820px 以下で表示。メニュー先頭に LINE 友だち追加 CTA
-3. **左サイドバー（PC 固定）** — ロゴ／ハッシュタグ 13 個／LINE CTA／ナビゲーション
+3. **左サイドバー（PC 固定）** — ロゴ／ハッシュタグ（公開中の 6 個）／LINE CTA／ナビゲーション
 4. **Hero Visual** — 大きな画像 1 枚＋キャッチコピー
 5. **`#news`** — microCMS から最新 3 件を描画、4 件以上あれば「もっとみる」ボタン
 6. **`#about`** — SHIP について（本文＋挿入画像 3 点）
@@ -90,33 +90,40 @@
 
 ---
 
-## 4. 下層ページ（pages/）の 2 世代構造 ★重要
+## 4. 下層ページ（pages/）
 
-`pages/` には **新旧 2 世代のページが混在しています。** ここが一番の落とし穴です。
+2026-09-06 に旧世代の静的個別ページを削除し、microCMS 駆動に一本化しました。
 
-### (A) 現行：microCMS 駆動の汎用ページ
+### microCMS 駆動の汎用ページ
 - **`content.html`** … `?slug=xxx` で microCMS の `contents` から取得して描画する汎用テンプレート
   - 該当コンテンツが無い／タイトルが `【非公開】` で始まる場合は「準備中です」画面を表示
   - `heroImage` / `description` / `gallery` / `body`（リッチエディタ）を描画
   - ギャラリーの alt を `「タイトル」説明文` の形式で書くと、キャプションが見出し＋本文に分解される
+  - サイドバーの `.hashtag` に `data-slug` を持たせ、開いている slug のタグを `active` にする
 - **`news-list.html`** … お知らせ一覧（microCMS から最大 100 件）
 - **`news.html`** … お知らせ詳細（`?id=xxx`）
 
-**トップページのハッシュタグは全てこの `content.html?slug=` を指しています。**
-使用中の slug: `stay, coffee, training, pizzaworkshop, cafe, bonfire, diy, bbq, goat, beer, park, event, fishing`
-（※ `pizzaworkshop` だけ画像ディレクトリ名が `images/pizza workshop/`。スペース入りなので扱いに注意）
+### ハッシュタグ（トップ・全下層ページで統一）
+**トップも下層も、サイドバー／モバイルのハッシュタグは全て `content.html?slug=` を指します。**
+現在表示しているのは **microCMS に公開済みの 6 個のみ**:
+`coffee, training, pizzaworkshop, bbq, goat, beer`
 
-### (B) 旧世代：静的な個別ページ（レガシー）
-`bbq.html` `beer.html` `bonfire.html` `cafe.html` `coffee.html` `diy.html` `event.html` `park.html` `pizza.html` `training.html` — 本文がハードコードされた旧ページ。ギャラリーは画像でなく文字プレースホルダのまま。
+非公開・未作成のため一旦ハッシュタグから外した slug:
+`stay, cafe, bonfire, diy, park, event, fishing`
+→ microCMS で公開したら、`index.html`（`sidebar-tags` と `mobile-tags-inner`）と
+`pages/content.html`（`sidebar-tags`）の 3 か所にタグを追加すれば復活します。
 
-`stay.html`（部屋タブ＋スライダー）と `goat.html`（ヤギ 3 頭の紹介カード）は例外で、**静的ながら中身が作り込まれている現役ページ**です。
+（※ `pizzaworkshop` だけ画像ディレクトリ名が `images/pizza workshop/`。スペース入りなので扱いに注意。
+`data-image` は従来どおり `images/pizza/hero.jpg` を使用）
 
-**未リンクの孤児ページ**: `kitchen.html` `workshop.html` `news-001.html` `news-002.html`
-**`stay.html` からのみリンク**: `cycle.html` `sauna.html`
+### 作り込み済みの静的ページ（ハッシュタグからは未リンク）
+- **`stay.html`** … 宿泊（部屋タブ＋スライダー）。宿泊事業を始めるときにハッシュタグ `#宿泊` を復活させて接続する
+- **`cycle.html`** `sauna.html` … `stay.html` の有料オプションからのみリンク
 
-### ⚠ 既知の不整合（未解決）
-**`index.html` のサイドバーは `content.html?slug=` を指すのに、`pages/` 配下の各ページのサイドバーは旧静的ページ（`cafe.html` など）を指しています。**
-つまりトップから入るか下層から辿るかで行き先が変わります。次に着手すべき課題の筆頭です（§8 参照）。
+### 削除済み（2026-09-06）
+旧静的個別ページ `bbq/beer/bonfire/cafe/coffee/diy/event/park/pizza/training.html`（内容は microCMS へ移行済み）、
+未リンクの孤児 `kitchen/workshop/news-001/news-002.html`、
+`goat.html`（microCMS の `goat` に一本化）。
 
 ---
 
@@ -205,6 +212,7 @@ GitHub Pages の設定画面、あるいは Netlify 等の外部サービス側�
 
 | 内容 |
 |---|
+| 画像最適化（236MB→19MB）、下層ページを microCMS 一本化、ハッシュタグを公開中6個に整理 |
 | About リード文から「宿泊」を削除 |
 | 内部リンクから `index.html` を除去し URL を整理（全ページ 4 回に分けて実施） |
 | Contact のメールボタンを廃止し、案内文の下にメールアドレスを直接表示 |
@@ -225,26 +233,29 @@ GitHub Pages の設定画面、あるいは Netlify 等の外部サービス側�
 
 優先度順に並べています。
 
-1. **下層ページのサイドバーのリンク先統一（最優先）**
-   `pages/*.html` のサイドバーが旧静的ページを指したまま。`content.html?slug=` に統一するか、旧ページを正とするか方針を決めて全ページを揃える。
+1. **microCMS API キーの権限確認（最優先）**（§5 の注意書き参照）
+   キーが公開リポジトリに平文で入っている。管理画面で「GET 限定か」「許可オリジンに `https://ship-nanbo.com` が設定されているか」を確認。広い権限なら再発行。
 
-2. **レガシー静的ページの整理**
-   `kitchen.html` `workshop.html` `news-001.html` `news-002.html` はどこからもリンクされていない孤児。microCMS 移行済みの `bbq/beer/bonfire/cafe/coffee/diy/event/park/pizza/training` も含め、削除するか残すかを判断する。
+2. **非公開コンテンツの公開 → ハッシュタグ復活**
+   `stay, cafe, bonfire, diy, park, event, fishing` は現在ハッシュタグから外している（§4）。
+   microCMS で公開したら `index.html` の 2 か所と `pages/content.html` の 1 か所にタグを追加する。
 
-3. **画像の最適化（影響大）**
-   `images/` の合計が **236MB**、`.git` が **214MB**。10MB を超える JPEG が複数あります（`goat/paa.jpg` 14.1MB、`diy/R0002975.jpg` 12.6MB、`goat/puu.jpg` 12.0MB、`bbq/inoshishi2.jpg` 11.8MB など）。
-   Web 表示に必要な解像度（長辺 2000px 程度）へのリサイズと圧縮でページ表示速度が大きく改善します。過去に About 画像のみ最適化した実績あり（コミット `f474302`）。
+3. **`images/pizza workshop/` のディレクトリ名にスペース**
+   URL エンコードが必要になり事故のもと。`images/pizza/` と中身が重複しているので、
+   `pizza workshop/` を削除して `images/pizza/` に一本化するのが安全。
 
-4. **microCMS API キーの権限確認**（§5 の注意書き参照）
-
-5. **`images/pizza workshop/` のディレクトリ名にスペース**
-   URL エンコードが必要になり事故のもと。`pizza-workshop` へのリネームを検討。
-
-6. **`fishing` に静的ページが無い**
-   トップの `#釣り` は `content.html?slug=fishing` を指すため、microCMS 側に `fishing` コンテンツが登録されていないと「準備中です」が表示されます。
-
-7. **SEO / 構造化データ**
+4. **SEO / 構造化データ**
    OGP は整備済みだが、`sitemap.xml` `robots.txt`、下層ページ個別の `description`/OGP は未整備。
+   `content.html` は動的描画のみでクロール時に内容が薄い。
+
+5. **JS 無効時のフォールバック**
+   `.reveal` 系が `opacity:0` 初期値で、`prefers-reduced-motion` 対応と `<noscript>` が無い。
+   IntersectionObserver が動かない環境では About〜Contact が非表示になる。
+
+### 対応済み（2026-09-06）
+- 画像最適化：`images/` を 236MB → 19MB（長辺2000px・JPEG品質80）。About/Concept に遅延読み込み。
+- 下層ページのサイドバーのリンク先を `content.html?slug=` に統一。旧静的個別ページと孤児ページを削除（§4）。
+- ハッシュタグを公開中の 6 個に整理。
 
 ---
 
