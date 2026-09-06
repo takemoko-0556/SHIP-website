@@ -150,6 +150,17 @@ ul {
 /* ========================================
    Hashtags
 ======================================== */
+.sidebar-label {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gray-500);
+  margin-bottom: 12px;
+  opacity: 0;
+  animation: sidebarReveal 1s cubic-bezier(0.16, 1, 0.3, 1) 1.4s forwards;
+}
+
 .sidebar-tags {
   flex: 1;
   display: flex;
