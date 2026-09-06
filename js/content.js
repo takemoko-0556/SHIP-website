@@ -26,6 +26,16 @@ async function fetchContentBySlug(slug) {
 }
 
 // ========================================
+// microCMS（imgix）画像 URL に最適化パラメータを付与
+//   auto=format,compress で対応ブラウザには WebP を自動配信
+// ========================================
+function optimizeImage(url, width) {
+  if (!url || url.indexOf('images.microcms-assets.io') === -1) return url;
+  const sep = url.indexOf('?') === -1 ? '?' : '&';
+  return `${url}${sep}w=${width}&q=80&auto=format,compress`;
+}
+
+// ========================================
 // Render content page
 // ========================================
 async function renderContent() {
@@ -68,8 +78,9 @@ async function renderContent() {
   if (titleEl) titleEl.textContent = content.title;
   if (tagEl) tagEl.textContent = `#${content.title}`;
   if (heroEl && content.heroImage) {
-    heroEl.src = content.heroImage.url;
+    heroEl.src = optimizeImage(content.heroImage.url, 1600);
     heroEl.alt = content.title;
+    heroEl.decoding = 'async';
     heroEl.parentElement.style.display = '';
   }
   if (descEl && content.description) {
@@ -80,6 +91,12 @@ async function renderContent() {
   }
   if (bodyEl && content.body) {
     bodyEl.innerHTML = content.body;
+    // 本文（リッチエディタ）内の microCMS 画像も最適化＋遅延読み込み
+    bodyEl.querySelectorAll('img').forEach(im => {
+      im.src = optimizeImage(im.getAttribute('src'), 1200);
+      im.loading = 'lazy';
+      im.decoding = 'async';
+    });
     if (bodySectionEl) bodySectionEl.style.display = '';
   }
 
@@ -93,7 +110,7 @@ async function renderContent() {
         const alt = img.alt || '';
         if (!alt) {
           return `<div class="gallery-item">
-            <img src="${img.url}" alt="" loading="lazy">
+            <img src="${optimizeImage(img.url, 1000)}" alt="" loading="lazy" decoding="async">
           </div>`;
         }
         // 「タイトル」本文 のパターンを解析
@@ -108,7 +125,7 @@ async function renderContent() {
           captionHtml = `<span class="gallery-caption-title">${alt}</span>`;
         }
         return `<div class="gallery-item">
-          <img src="${img.url}" alt="${alt}" loading="lazy">
+          <img src="${optimizeImage(img.url, 1000)}" alt="${alt}" loading="lazy" decoding="async">
           <div class="gallery-caption">${captionHtml}</div>
         </div>`;
       }).join('');
