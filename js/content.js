@@ -84,10 +84,13 @@ async function renderContent() {
     heroEl.parentElement.style.display = '';
   }
   if (descEl && content.description) {
-    // HTMLタグを除去してテキストのみ表示
-    const tmp = document.createElement('div');
-    tmp.innerHTML = content.description;
-    descEl.textContent = tmp.textContent;
+    // リッチエディタの装飾（改行・太字・リンク等）をそのまま表示
+    descEl.innerHTML = content.description;
+    descEl.querySelectorAll('img').forEach(im => {
+      im.src = optimizeImage(im.getAttribute('src'), 1200);
+      im.loading = 'lazy';
+      im.decoding = 'async';
+    });
   }
   if (bodyEl && content.body) {
     bodyEl.innerHTML = content.body;

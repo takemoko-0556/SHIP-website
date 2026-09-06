@@ -61,6 +61,29 @@
   line-height: 2.2;
 }
 
+.page-description p {
+  margin-bottom: 1.2em;
+}
+
+.page-description p:last-child {
+  margin-bottom: 0;
+}
+
+.page-description strong {
+  font-weight: 700;
+  color: var(--black);
+}
+
+.page-description a {
+  color: var(--brand);
+  text-decoration: underline;
+}
+
+.page-description img {
+  margin: 16px 0;
+  border-radius: 8px;
+}
+
 /* ========================================
    Page Gallery
 ======================================== */
