@@ -342,6 +342,33 @@
   margin: 32px 0;
 }
 
+/* figure が複数並ぶとき（メニュー画像など）の列レイアウト */
+.cms-columns {
+  display: grid;
+  gap: 24px 40px;
+  margin: 32px 0;
+}
+
+.cms-column > :first-child {
+  margin-top: 0;
+}
+
+.cms-column figure {
+  margin: 8px 0 0;
+}
+
+.cms-column img {
+  width: 100%;
+  margin: 0;
+}
+
+@media (min-width: 768px) {
+  .cms-columns {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    align-items: start;
+  }
+}
+
 .cms-body figcaption {
   font-size: 12px;
   color: var(--gray-500);
