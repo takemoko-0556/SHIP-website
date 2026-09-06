@@ -346,10 +346,10 @@ ul {
 
 .nav-mobile a {
   display: block;
-  font-size: 24px;
+  font-size: 19px;
   font-weight: 300;
   letter-spacing: 0.15em;
-  padding: 20px 0;
+  padding: 15px 0;
   color: var(--black);
   border-bottom: 1px solid var(--gray-200);
   transition: padding-left 0.3s ease, color 0.3s ease;
@@ -364,9 +364,9 @@ ul {
   color: var(--gray-500);
 }
 
-/* Mobile Nav LINE CTA (top of hamburger menu) */
+/* Mobile Nav LINE CTA (メニュー最下部) */
 .nav-mobile-line {
-  margin-bottom: 28px;
+  margin-top: 36px;
 }
 
 .nav-mobile-line-caption {
@@ -406,13 +406,13 @@ ul {
   flex-shrink: 0;
 }
 
-/* Mobile Nav ハッシュタグ（ハンバーガーメニュー内・LINE の上） */
+/* Mobile Nav ハッシュタグ（ハンバーガーメニュー内） */
 .nav-mobile-label {
-  font-size: 24px;
+  font-size: 19px;
   font-weight: 300;
   letter-spacing: 0.15em;
   color: var(--black);
-  padding: 20px 0 18px;
+  padding: 15px 0 14px;
   border-top: 1px solid var(--gray-200);
 }
 
@@ -420,9 +420,7 @@ ul {
   display: flex;
   flex-wrap: wrap;
   gap: 10px 16px;
-  padding-bottom: 24px;
-  margin-bottom: 32px;
-  border-bottom: 1px solid var(--gray-200);
+  margin-bottom: 24px;
 }
 
 .nav-mobile a.hashtag {
