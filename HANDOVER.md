@@ -110,7 +110,7 @@
 ### ハッシュタグ（トップ・全下層ページで統一）
 **トップも下層も、サイドバー／モバイルのハッシュタグは全て `content.html?slug=` を指します。**
 現在表示しているのは **microCMS に公開済みの 8 個のみ**（この順）:
-`cafe, goat, hamburger, coffee, training, pizzaworkshop, bbq, beer`
+`cafe, goat, hamburger, coffee, beer, training, pizzaworkshop, bbq`
 
 非公開・未作成のため一旦ハッシュタグから外した slug:
 `stay, bonfire, diy, park, event, fishing`
