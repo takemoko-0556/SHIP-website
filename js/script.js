@@ -266,7 +266,8 @@ async function hydrateHeroImagesFromCMS() {
     if (c.heroImage && c.heroImage.url) {
       const u = c.heroImage.url;
       const sep = u.indexOf('?') === -1 ? '?' : '&';
-      heroBySlug[c.slug] = `${u}${sep}w=1600&q=80&auto=format,compress`;
+      // slug の前後空白は無視（CMS 側の入力ゆれ対策）
+      heroBySlug[String(c.slug).trim()] = `${u}${sep}w=1600&q=80&auto=format,compress`;
     }
   });
 

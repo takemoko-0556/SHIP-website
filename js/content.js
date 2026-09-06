@@ -11,14 +11,23 @@ const CONTENT_API_URL = `https://${MICROCMS_SERVICE_ID}.microcms.io/api/v1/${MIC
 // Fetch content by slug
 // ========================================
 async function fetchContentBySlug(slug) {
+  const headers = { 'X-MICROCMS-API-KEY': MICROCMS_API_KEY };
   try {
-    const res = await fetch(`${CONTENT_API_URL}?filters=slug[equals]${slug}`, {
-      headers: { 'X-MICROCMS-API-KEY': MICROCMS_API_KEY }
-    });
+    const res = await fetch(
+      `${CONTENT_API_URL}?filters=slug[equals]${encodeURIComponent(slug)}`,
+      { headers }
+    );
     if (!res.ok) throw new Error(`API error: ${res.status}`);
     const data = await res.json();
-    if (data.contents.length === 0) return null;
-    return data.contents[0];
+    if (data.contents.length > 0) return data.contents[0];
+
+    // フォールバック: CMS 側 slug の前後空白ゆれを吸収して再検索
+    const list = await fetch(`${CONTENT_API_URL}?fields=id,slug&limit=100`, { headers }).then(r => r.json());
+    const hit = (list.contents || []).find(c => String(c.slug).trim() === slug.trim());
+    if (hit) {
+      return await fetch(`${CONTENT_API_URL}/${hit.id}`, { headers }).then(r => r.json());
+    }
+    return null;
   } catch (err) {
     console.error('Failed to fetch content:', err);
     return null;
