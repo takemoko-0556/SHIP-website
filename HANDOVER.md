@@ -105,13 +105,14 @@
 
 ### ハッシュタグ（トップ・全下層ページで統一）
 **トップも下層も、サイドバー／モバイルのハッシュタグは全て `content.html?slug=` を指します。**
-現在表示しているのは **microCMS に公開済みの 6 個のみ**:
-`coffee, training, pizzaworkshop, bbq, goat, beer`
+現在表示しているのは **microCMS に公開済みの 7 個のみ**（この順）:
+`cafe, coffee, training, pizzaworkshop, bbq, goat, beer`
 
 非公開・未作成のため一旦ハッシュタグから外した slug:
-`stay, cafe, bonfire, diy, park, event, fishing`
+`stay, bonfire, diy, park, event, fishing`
 → microCMS で公開したら、`index.html`（`sidebar-tags` と `mobile-tags-inner`）と
 `pages/content.html`（`sidebar-tags`）の 3 か所にタグを追加すれば復活します。
+並び順もこの 3 か所で揃えること。
 
 （※ `pizzaworkshop` だけ画像ディレクトリ名が `images/pizza workshop/`。スペース入りなので扱いに注意。
 `data-image` は従来どおり `images/pizza/hero.jpg` を使用）
@@ -134,6 +135,9 @@
 - 取得しているフィールド
   - `news`: `title`, `publishedAt`, `category.name`, `content`
   - `contents`: `slug`, `title`, `description`, `heroImage`, `gallery[]`, `body`
+- **画像の最適化（2026-09-06〜）**: `js/content.js` の `optimizeImage()` が microCMS 画像 URL に
+  `?w=…&q=80&auto=format,compress` を付与（ヒーロー1600 / ギャラリー1000 / 本文1200）。
+  `auto=format` で対応ブラウザには WebP を自動配信。**CMS にアップする画像を事前縮小する必要はない**。
 - カテゴリ名 → バッジ色のマッピングは `js/news.js` の `getBadgeClass()`。
   `更新情報`/`お知らせ` → `update`、`重要`/`イベント` → `coming-soon`。**新カテゴリを microCMS 側で増やしたらここも追記が必要。**
 - 日付フォーマットは `formatDate()` で `2026.02.17` 形式に変換。
@@ -237,7 +241,7 @@ GitHub Pages の設定画面、あるいは Netlify 等の外部サービス側�
    キーが公開リポジトリに平文で入っている。管理画面で「GET 限定か」「許可オリジンに `https://ship-nanbo.com` が設定されているか」を確認。広い権限なら再発行。
 
 2. **非公開コンテンツの公開 → ハッシュタグ復活**
-   `stay, cafe, bonfire, diy, park, event, fishing` は現在ハッシュタグから外している（§4）。
+   `stay, bonfire, diy, park, event, fishing` は現在ハッシュタグから外している（§4）。
    microCMS で公開したら `index.html` の 2 か所と `pages/content.html` の 1 か所にタグを追加する。
 
 3. **`images/pizza workshop/` のディレクトリ名にスペース**
