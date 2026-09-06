@@ -886,6 +886,23 @@ ul {
   color: var(--gray-500);
 }
 
+.access-hours h4 + p {
+  margin-bottom: 20px;
+}
+
+.access-hours p:last-child {
+  margin-bottom: 0;
+}
+
+.access-hours h4 ~ h4 {
+  margin-top: 4px;
+}
+
+.access-hours p a {
+  color: var(--brand);
+  text-decoration: underline;
+}
+
 /* ========================================
    Contact
 ======================================== */
