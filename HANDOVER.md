@@ -61,7 +61,7 @@
 
 1. **Loading Cover** — `images/common/logo-ship.png` を 1 秒表示してフェードアウト（`js/script.js`）
 2. **Mobile Header + ハンバーガーメニュー** — 820px 以下で表示。メニュー構成は「ハッシュタグ → LINE CTA → News/About/…」の順（`.nav-mobile-tags` / `.nav-mobile-line`）
-3. **左サイドバー（PC 固定）** — ロゴ／ハッシュタグ（公開中の 6 個）／LINE CTA／ナビゲーション
+3. **左サイドバー（PC 固定）** — ロゴ／「CONTENTS」見出し＋ハッシュタグ／LINE CTA／ナビゲーション
 4. **Hero Visual** — 大きな画像 1 枚＋キャッチコピー
 5. **`#news`** — microCMS から最新 3 件を描画、4 件以上あれば「もっとみる」ボタン
 6. **`#about`** — SHIP について（本文＋挿入画像 3 点）
