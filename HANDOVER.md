@@ -60,7 +60,7 @@
 上から順に以下のブロックで構成されています。
 
 1. **Loading Cover** — `images/common/logo-ship.png` を 1 秒表示してフェードアウト（`js/script.js`）
-2. **Mobile Header + ハンバーガーメニュー** — 820px 以下で表示。メニュー先頭に LINE 友だち追加 CTA
+2. **Mobile Header + ハンバーガーメニュー** — 820px 以下で表示。メニュー構成は「ハッシュタグ → LINE CTA → News/About/…」の順（`.nav-mobile-tags` / `.nav-mobile-line`）
 3. **左サイドバー（PC 固定）** — ロゴ／ハッシュタグ（公開中の 6 個）／LINE CTA／ナビゲーション
 4. **Hero Visual** — 大きな画像 1 枚＋キャッチコピー
 5. **`#news`** — microCMS から最新 3 件を描画、4 件以上あれば「もっとみる」ボタン
@@ -120,6 +120,11 @@
 
 （※ `pizzaworkshop` だけ画像ディレクトリ名が `images/pizza workshop/`。スペース入りなので扱いに注意。
 `data-image` は従来どおり `images/pizza/hero.jpg` を使用）
+
+### フッター
+`index.html` と全下層ページ（`pages/*.html`）の `<main>` 末尾に共通フッター
+（ロゴ＝トップへのリンク／News・About・Concept・Access・Contact／コピーライト）。
+スタイルは `css/style.css` の `.footer`。以前あった各ページの「← Back to Top」は廃止。
 
 ### 作り込み済みの静的ページ（ハッシュタグからは未リンク）
 - **`stay.html`** … 宿泊（部屋タブ＋スライダー）。宿泊事業を始めるときにハッシュタグ `#宿泊` を復活させて接続する

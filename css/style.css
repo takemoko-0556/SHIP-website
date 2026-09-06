@@ -334,6 +334,14 @@ ul {
   flex-direction: column;
   justify-content: center;
   opacity: 1;
+  overflow-y: auto;
+}
+
+/* 項目が増えて縦に収まらない端末では上寄せ＋スクロール */
+@media (max-height: 720px) {
+  .nav-mobile.open {
+    justify-content: flex-start;
+  }
 }
 
 .nav-mobile a {
@@ -396,6 +404,32 @@ ul {
   width: 22px;
   height: 22px;
   flex-shrink: 0;
+}
+
+/* Mobile Nav ハッシュタグ（ハンバーガーメニュー内・LINE の上） */
+.nav-mobile-tags {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px 16px;
+  max-width: 320px;
+  align-self: center;
+  margin-bottom: 36px;
+}
+
+.nav-mobile a.hashtag {
+  display: inline-block;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  padding: 2px 0;
+  color: var(--gray-400);
+  border: none;
+}
+
+.nav-mobile a.hashtag:hover {
+  padding-left: 0;
+  color: var(--brand);
 }
 
 /* ========================================
